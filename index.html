@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ann Bishop · Product, Design & Research Leadership</title>
+<title>Ann Bishop · Product, Design &amp; Research Leadership</title>
 <meta name="description" content="Ann Bishop is a veteran leader in design, product, and user research.">
 <style>
 
@@ -78,7 +77,7 @@ img { display: block; max-width: 100%; }
 button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
 h1, h2, h3, h4 { font-family: var(--font-display); }
 
-/* Scroll-reveal (fade + rise on enter viewport) */
+/* Scroll-reveal */
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s, transform 0.65s; }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
@@ -104,7 +103,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   opacity: 0; transform: translateY(-6px); pointer-events: none;
   transition: opacity 0.35s, transform 0.35s;
 }
-.main-nav.scrolled .nav-logo { opacity: 1; transform: translateY(0); }
+.main-nav.scrolled .nav-logo { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .nav-logo .a-tight { letter-spacing: -0.07em; }
 .nav-links-list { display: flex; align-items: center; gap: 36px; }
 .nav-link {
@@ -168,7 +167,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 }
 .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
 
-/* ============ shared section bits ============ */
+/* ============ shared ============ */
 .section-eyebrow {
   font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--brand); margin-bottom: 14px;
@@ -185,27 +184,20 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 .about-body p { font-size: 1.04rem; color: var(--gray-body); line-height: 1.82; margin-bottom: 20px; }
 .about-body p:last-child { margin-bottom: 0; }
 .client-group { margin-top: 44px; }
-.client-label {
-  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase;
-  color: var(--gray-label); margin-bottom: 14px;
-}
+.client-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gray-label); margin-bottom: 14px; }
 .client-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
 .client-row:last-child { margin-bottom: 0; }
-.client-badge {
-  background: white; border: 1.5px solid var(--border); border-radius: 10px;
-  display: flex; align-items: center; gap: 8px; padding: 8px 14px 8px 10px;
-  flex-shrink: 0; height: 44px;
-}
+.client-badge { background: white; border: 1.5px solid var(--border); border-radius: 10px; display: flex; align-items: center; gap: 8px; padding: 8px 14px 8px 10px; flex-shrink: 0; height: 44px; }
 .client-badge img { width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; }
 .client-badge span { font-size: 0.78rem; font-weight: 600; color: var(--gray-body); white-space: nowrap; line-height: 1; }
 
 /* ============ PHILOSOPHY ============ */
 .philosophy-section { padding: 84px 80px; background: var(--warm); }
-.philosophy-inner { max-width: 740px; margin: 0 auto; text-align: center; }
+.philosophy-inner { max-width: 740px; margin: 0 auto; }
 .philosophy-quote {
-  font-family: var(--font-serif); font-style: italic; font-size: clamp(1.45rem, 2.4vw, 2.05rem);
+  font-family: var(--font-serif); font-style: italic; font-size: clamp(1.15rem, 1.8vw, 1.55rem);
   line-height: 1.58; color: var(--ink); font-weight: 400;
-  border-left: 4px solid var(--brand); padding-left: clamp(1.2rem, 2vw, 2rem); text-align: left;
+  border-left: 4px solid var(--brand); padding-left: clamp(1.2rem, 2vw, 2rem);
 }
 
 /* ============ WORK ============ */
@@ -213,42 +205,27 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 .work-inner { max-width: 1080px; margin: 0 auto; }
 .work-heading-wrap { margin-bottom: 56px; }
 .case-list { display: flex; flex-direction: column; gap: 18px; }
-.case-card {
-  border: 1.5px solid var(--border); border-radius: 14px; overflow: hidden;
-  background: white; box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-}
-.case-header {
-  display: grid; grid-template-columns: 56px 1fr 44px; gap: 20px; align-items: center;
-  padding: 32px 36px; cursor: pointer; user-select: none; width: 100%; text-align: left;
-}
+.case-card { border: 1.5px solid var(--border); border-radius: 14px; overflow: hidden; background: white; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+.case-header { display: grid; grid-template-columns: 56px 1fr 44px; gap: 20px; align-items: center; padding: 32px 36px; cursor: pointer; user-select: none; width: 100%; text-align: left; }
 .case-num { font-family: var(--font-display); font-size: 2.6rem; font-weight: 900; color: var(--border); line-height: 1; }
 .case-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--brand); margin-bottom: 9px; }
 .case-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--ink); margin-bottom: 9px; line-height: 1.22; }
 .case-summary { font-size: 0.9rem; color: var(--gray-label); line-height: 1.6; }
-.case-toggle-btn {
-  width: 38px; height: 38px; border-radius: 50%; background: var(--warm); color: var(--gray-label);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  transition: background 0.25s, color 0.25s, transform 0.35s;
-}
+.case-toggle-btn { width: 38px; height: 38px; border-radius: 50%; background: var(--warm); color: var(--gray-label); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.25s, color 0.25s, transform 0.35s; }
 .case-card.open .case-toggle-btn { background: var(--brand); color: white; transform: rotate(45deg); }
 .case-expand { max-height: 0; overflow: hidden; transition: max-height 0.52s cubic-bezier(0.4,0,0.2,1); }
 .case-card.open .case-expand { max-height: 3200px; }
 .case-body-inner { padding: 0 0 48px; border-top: 1px solid var(--border); }
-
-.case-image-wrap { width: 100%; max-height: 380px; overflow: hidden; background: var(--warm); position: relative; margin-bottom: 40px; }
+.case-image-wrap { width: 100%; max-height: 380px; overflow: hidden; background: var(--warm); position: relative; margin-bottom: 40px; border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
 .case-image-wrap img { width: 100%; height: auto; display: block; }
-.case-image-wrap.blur img { filter: blur(3px); }
-.case-caption { font-size: 0.75rem; color: var(--gray-label); font-style: italic; margin: 8px 0 0; padding-left: 2px; }
-.case-image-group { margin-bottom: 40px; }
-.case-image-hero { width: 100%; max-height: 380px; overflow: hidden; background: var(--warm); margin-bottom: 4px; }
+.case-image-group { margin-bottom: 40px; padding: 0 36px; }
+.case-image-hero { width: 100%; max-height: 380px; overflow: hidden; background: var(--warm); margin-bottom: 16px; border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
 .case-image-hero img { width: 100%; height: auto; display: block; }
-.case-image-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
-.case-image-2col div { background: var(--warm); }
+.case-image-2col { display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start; }
+.case-image-2col > div { flex: 1; background: var(--warm); overflow: hidden; border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.case-image-2col .case-image-col { display: flex; flex-direction: column; gap: 16px; background: none; border: none; box-shadow: none; padding: 0; }
+.case-image-2col .case-image-col > div { background: var(--warm); overflow: hidden; border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
 .case-image-2col img { width: 100%; height: auto; display: block; }
-.case-image-single { display: grid; grid-template-columns: minmax(0, 480px); gap: 4px; justify-content: center; margin-top: 4px; }
-.case-image-single div { background: var(--warm); }
-.case-image-single img { width: 100%; height: auto; display: block; }
-
 .case-content { padding: 0 36px; }
 .case-body-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px 56px; margin-bottom: 36px; }
 .case-col { display: flex; flex-direction: column; gap: 32px; }
@@ -277,58 +254,33 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 .timeline-date { font-size: 0.8rem; color: var(--brand); font-weight: 500; display: block; margin-bottom: 2px; }
 .timeline-desc { font-size: 0.8rem; color: var(--gray-label); line-height: 1.52; display: block; }
 .skills-col { display: flex; flex-direction: column; gap: 28px; }
-.skill-group h4 {
-  font-family: var(--font-sans);
-  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase;
-  color: var(--gray-label); margin-bottom: 12px;
-}
+.skill-group h4 { font-family: var(--font-sans); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gray-label); margin-bottom: 12px; }
 .skill-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-.skill-pills span {
-  padding: 5px 12px; background: white; border: 1px solid var(--border); border-radius: 5px;
-  font-size: 0.82rem; font-weight: 500; color: var(--ink);
-}
+.skill-pills span { padding: 5px 12px; background: white; border: 1px solid var(--border); border-radius: 5px; font-size: 0.82rem; font-weight: 500; color: var(--ink); }
 
 /* ============ CONTACT ============ */
 .contact-section { background: var(--gradient); padding: 104px 80px; text-align: center; }
 .contact-inner { max-width: 600px; margin: 0 auto; }
-.contact-eyebrow {
-  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-  color: rgba(255,255,255,0.65); margin-bottom: 14px;
-}
-.contact-heading {
-  font-family: var(--font-display); font-size: clamp(1.9rem, 3vw, 2.75rem); font-weight: 700;
-  line-height: 1.12; letter-spacing: -0.025em; color: white; margin-bottom: 20px;
-}
+.contact-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 14px; }
+.contact-heading { font-family: var(--font-display); font-size: clamp(1.9rem, 3vw, 2.75rem); font-weight: 700; line-height: 1.12; letter-spacing: -0.025em; color: white; margin-bottom: 20px; }
 .contact-blurb { color: rgba(255,255,255,0.86); font-size: 1.06rem; line-height: 1.66; margin-bottom: 52px; }
 .contact-btn-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
-.contact-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: white; color: var(--brand); font-weight: 600; font-size: 0.88rem;
-  padding: 14px 22px; border-radius: 6px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
-  transition: transform 0.22s, box-shadow 0.22s;
-}
+.contact-btn { display: inline-flex; align-items: center; gap: 8px; background: white; color: var(--brand); font-weight: 600; font-size: 0.88rem; padding: 14px 22px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.12); transition: transform 0.22s, box-shadow 0.22s; }
 .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.16); }
 .contact-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
 
 /* ============ FOOTER ============ */
-.site-footer {
-  background: #191919; color: rgba(255,255,255,0.36); text-align: center;
-  padding: 22px 24px; font-size: 0.75rem; letter-spacing: 0.04em;
-}
+.site-footer { background: #191919; color: rgba(255,255,255,0.36); text-align: center; padding: 22px 24px; font-size: 0.75rem; letter-spacing: 0.04em; }
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 900px) {
   .main-nav { padding: 0 24px; }
   .nav-links-list { display: none; }
   .nav-mobile-btn { display: block; }
-  .hero-section, .about-section, .philosophy-section, .work-section, .background-section, .contact-section {
-    padding-left: 24px; padding-right: 24px;
-  }
-  .about-body { max-width: 100%; }
+  .hero-section, .about-section, .philosophy-section, .work-section, .background-section, .contact-section { padding-left: 24px; padding-right: 24px; }
   .bg-grid { grid-template-columns: 1fr; gap: 56px 0; }
   .case-body-grid { grid-template-columns: 1fr; gap: 28px; }
-  .case-image-2col { grid-template-columns: 1fr; }
+  .case-image-2col { flex-direction: column; }
   .outcomes-grid { grid-template-columns: 1fr; }
   .case-header { grid-template-columns: 40px 1fr 40px; padding: 24px 20px; }
   .case-content { padding: 0 20px; }
@@ -337,7 +289,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 </head>
 <body>
 
-<!-- ====== NAV ====== -->
 <nav class="main-nav">
   <span class="nav-logo"><span class="a-tight">A</span>nn Bishop</span>
   <ul class="nav-links-list">
@@ -345,10 +296,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     <li><a href="#work" class="nav-link">Work</a></li>
     <li><a href="#background" class="nav-link">Background</a></li>
     <li><a href="#contact" class="nav-link">Contact</a></li>
-    <li><a href="/Ann_Bishop_Resume.pdf" download="Ann_Bishop_Resume.pdf" class="resume-link">Resume<span>↓</span></a></li>
+    <li><a href="ann-bishop-resume.pdf" download="ann-bishop-resume.pdf" class="resume-link">Resume<span>↓</span></a></li>
   </ul>
   <button class="nav-mobile-btn" id="mobile-menu-btn" aria-label="Open menu">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
   </button>
 </nav>
 <div id="mobile-menu">
@@ -356,24 +307,22 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   <a href="#work">Work</a>
   <a href="#background">Background</a>
   <a href="#contact">Contact</a>
-  <a href="/Ann_Bishop_Resume.pdf" download="Ann_Bishop_Resume.pdf">Resume ↓</a>
+  <a href="ann-bishop-resume.pdf" download="ann-bishop-resume.pdf">Resume ↓</a>
 </div>
 
-<!-- ====== HERO ====== -->
 <section id="hero" class="hero-section">
   <div class="hero-glow"></div>
   <div class="hero-fade-bottom"></div>
   <div class="hero-inner">
-    <p class="hero-eyebrow">Product, Design &amp; Research Leadership</p>
+    <p class="hero-eyebrow">Design &amp; Research Leadership</p>
     <h1 class="hero-name">Ann Bishop</h1>
     <p class="hero-sub">Building the teams and systems that turn what people need into what a product does next.</p>
     <a href="#work" class="hero-cta">View selected work
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg>
     </a>
   </div>
 </section>
 
-<!-- ====== ABOUT ====== -->
 <section id="about" class="about-section">
   <div class="about-inner">
     <div class="reveal">
@@ -382,37 +331,35 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
         <h2 class="section-heading">Human-centered design, <br>from the ground up.</h2>
       </div>
       <div class="about-body">
-        <p>I'm a veteran leader in design, product, and user research. Starting with launching Travelocity, one of the first online travel sites, to establishing content as a design practice at eBay, to building a 50-person design and research org at Livongo/Teladoc. At Apple, I managed a team of enterprise product managers and taught a popular innovative thinking course before building an internal Voice of the Customer program.</p>
-        <p>My path runs through in-house leadership at Apple, Teladoc, Ibotta, and eBay, and consulting engagements with Facebook, LinkedIn, and Intuit. The throughline at every stop: use rigorous research to find what's actually true about users and the business, then build the team and systems that makes acting on it repeatable.</p>
+        <p>I'm a product design and user research leader who builds the teams and systems that turn customer truth into business results. That's meant launching Travelocity, one of the first online travel sites; establishing content as a design discipline at eBay; and scaling a 50-person design and research org at Livongo/Teladoc. At Apple, I've managed a team of enterprise product managers, taught a popular course on innovative thinking, and now lead an internal Voice of the Customer program I built from the ground up.</p>
+        <p>My path runs through in-house leadership at Apple, Teladoc, and eBay, and consulting engagements with Facebook, LinkedIn, and Intuit. The throughline: use rigorous research to find what's actually true about users and the business, then build the team and systems that make acting on it repeatable.</p>
       </div>
     </div>
     <div class="reveal client-group">
       <p class="client-label">In-house leadership</p>
       <div class="client-row">
-        <div class="client-badge" title="Apple"><img src="images/favicons/apple.com.png" alt="Apple"><span>Apple</span></div>
-        <div class="client-badge" title="Teladoc"><img src="images/favicons/teladoc.com.png" alt="Teladoc"><span>Teladoc</span></div>
-        <div class="client-badge" title="Financial Engines"><img src="images/favicons/financialengines.com.png" alt="Financial Engines"><span>Financial Engines</span></div>
-        <div class="client-badge" title="eBay"><img src="images/favicons/ebay.com.png" alt="eBay"><span>eBay</span></div>
-        <div class="client-badge" title="Travelocity"><img src="images/favicons/travelocity.com.png" alt="Travelocity"><span>Travelocity</span></div>
+        <div class="client-badge"><img src="images/apple.com.png" alt="Apple"><span>Apple</span></div>
+        <div class="client-badge"><img src="images/teladoc.com.png" alt="Teladoc"><span>Teladoc</span></div>
+        <div class="client-badge"><img src="images/financialengines.com.png" alt="Financial Engines"><span>Financial Engines</span></div>
+        <div class="client-badge"><img src="images/ebay.com.png" alt="eBay"><span>eBay</span></div>
+        <div class="client-badge"><img src="images/travelocity.com.png" alt="Travelocity"><span>Travelocity</span></div>
       </div>
       <p class="client-label">Consulting clients</p>
       <div class="client-row">
-        <div class="client-badge" title="Facebook"><img src="images/favicons/facebook.com.png" alt="Facebook"><span>Facebook</span></div>
-        <div class="client-badge" title="LinkedIn"><img src="images/favicons/linkedin.com.png" alt="LinkedIn"><span>LinkedIn</span></div>
-        <div class="client-badge" title="Intuit"><img src="images/favicons/intuit.com.png" alt="Intuit"><span>Intuit</span></div>
+        <div class="client-badge"><img src="images/facebook.com.png" alt="Facebook"><span>Facebook</span></div>
+        <div class="client-badge"><img src="images/linkedin.com.png" alt="LinkedIn"><span>LinkedIn</span></div>
+        <div class="client-badge"><img src="images/intuit.com.png" alt="Intuit"><span>Intuit</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====== PHILOSOPHY ====== -->
 <section id="philosophy" class="philosophy-section">
   <div class="philosophy-inner reveal">
     <blockquote class="philosophy-quote">I believe people, and teams, are often more capable than they realize. My focus as a leader is to help people wade out of their comfort zone — that's where teams build trust, innovation happens, and careers grow.</blockquote>
   </div>
 </section>
 
-<!-- ====== WORK ====== -->
 <section id="work" class="work-section">
   <div class="work-inner">
     <div class="reveal">
@@ -421,28 +368,25 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
         <h2 class="section-heading">Three ways I've turned <br>research into results.</h2>
       </div>
     </div>
-
     <div class="case-list">
-      <!-- Case 01 -->
-      <div class="reveal case-card" data-case>
+      <div class="reveal case-card" data-case="">
         <button class="case-header" type="button">
           <span class="case-num">01</span>
           <div>
             <div class="case-eyebrow">UX · Apple</div>
             <div class="case-title">Building a Voice of the Customer program from zero</div>
-            <div class="case-summary">Designed and scaled a company-wide feedback and satisfaction-measurement system with an AI-assisted signal pipeline covering dozens of internal products.</div>
+            <div class="case-summary">Established and scaled a company-wide feedback and satisfaction-measurement system with an AI-assisted signal pipeline covering dozens of internal products.</div>
           </div>
           <span class="case-toggle-btn" aria-hidden="true">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
           </span>
         </button>
         <div class="case-expand">
           <div class="case-body-inner">
             <div class="case-image-group">
-              <div class="case-image-wrap blur">
-                <img src="images/example_dashboard.png" alt="CSAT dashboard — results for first party IS&T hero products">
+              <div class="case-image-wrap">
+                <img src="images/example_dashboard.png" alt="CSAT dashboard">
               </div>
-              <p class="case-caption">Example dashboard from the Voice of the Customer program</p>
             </div>
             <div class="case-content">
               <div class="case-body-grid">
@@ -484,8 +428,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
         </div>
       </div>
 
-      <!-- Case 02 -->
-      <div class="reveal case-card" data-case>
+      <div class="reveal case-card" data-case="">
         <button class="case-header" type="button">
           <span class="case-num">02</span>
           <div>
@@ -494,16 +437,15 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
             <div class="case-summary">A qualitative research study that surfaced a large number of designers scattered across an enterprise technology org with no shared standards — and the frameworks that turned the finding into a new operating model.</div>
           </div>
           <span class="case-toggle-btn" aria-hidden="true">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
           </span>
         </button>
         <div class="case-expand">
           <div class="case-body-inner">
             <div class="case-image-group">
-              <div class="case-image-wrap blur">
-                <img src="images/heat_map.png" alt="Heat map showing design practitioner distribution across the organization">
+              <div class="case-image-wrap">
+                <img src="images/heat_map.png" alt="Heat map showing design practitioner distribution">
               </div>
-              <p class="case-caption">Heat map of resources by organization</p>
             </div>
             <div class="case-content">
               <div class="case-body-grid">
@@ -542,8 +484,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
         </div>
       </div>
 
-      <!-- Case 03 -->
-      <div class="reveal case-card" data-case>
+      <div class="reveal case-card" data-case="">
         <button class="case-header" type="button">
           <span class="case-num">03</span>
           <div>
@@ -552,21 +493,21 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
             <div class="case-summary">Design research uncovered an underserved customer segment, reshaping company strategy, driving a corporate acquisition, and leading a full brand relaunch across 125 physical advisor center locations nationwide.</div>
           </div>
           <span class="case-toggle-btn" aria-hidden="true">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
           </span>
         </button>
         <div class="case-expand">
           <div class="case-body-inner">
             <div class="case-image-group">
-              <div class="case-image-hero">
-                <img src="images/fe_letterhead.jpg" alt="Brand collateral — business cards, letterhead, and notebook with the new Financial Engines identity">
-              </div>
               <div class="case-image-2col">
-                <div><img src="images/fe_guide.jpg" alt="Financial Engines brand guidelines — the complete brand system delivered as a comprehensive document"></div>
-                <div><img src="images/fe_web.jpg" alt="Financial Engines personal advisor web experience — the end-to-end customer journey from awareness to appointment"></div>
+                <div><img src="images/fe_web.jpg" alt="Financial Engines personal advisor web experience"></div>
+                <div class="case-image-col">
+                  <div><img src="images/fe_guide.jpg" alt="Financial Engines brand guidelines"></div>
+                  <div><img src="images/fe_letterhead.jpg" alt="Brand collateral"></div>
+                </div>
               </div>
-              <div class="case-image-single">
-                <div><img src="images/fe_beast.jpg" alt="In-home research artifact — a customer's handwritten note tracking investment accounts across multiple providers"></div>
+              <div class="case-image-hero" style="max-height: 520px; margin-top: 16px;">
+                <img src="images/fe_wall.png" alt="Financial Engines brand wall installation" style="object-fit: cover; object-position: center; height: 520px;">
               </div>
             </div>
             <div class="case-content">
@@ -608,12 +549,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
         </div>
       </div>
     </div>
-
-    <p class="work-outro reveal">I'm happy to share my full portfolio in person.</p>
+    <p class="work-outro reveal">More case studies and full project detail available on request — <a href="#contact" style="color: var(--brand); text-decoration: underline; text-underline-offset: 3px;">let's talk</a>.</p>
   </div>
 </section>
 
-<!-- ====== BACKGROUND ====== -->
 <section id="background" class="background-section">
   <div class="background-inner">
     <div class="reveal background-heading-wrap">
@@ -622,115 +561,25 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     </div>
     <div class="bg-grid">
       <div>
-        <div class="reveal timeline-item">
-          <div class="timeline-line"></div>
-          <div class="timeline-dot"></div>
-          <div>
-            <strong class="timeline-role">Apple — Manager, Product Management &amp; UX Program Lead</strong>
-            <span class="timeline-date">Oct 2022 – Present</span>
-            <span class="timeline-desc">Voice of the Customer program, design org strategy, enterprise technology</span>
-          </div>
-        </div>
-        <div class="reveal timeline-item">
-          <div class="timeline-line"></div>
-          <div class="timeline-dot"></div>
-          <div>
-            <strong class="timeline-role">Teladoc / Livongo — VP, Product Design &amp; User Research</strong>
-            <span class="timeline-date">Apr 2019 – Sep 2022</span>
-            <span class="timeline-desc">Scaled design &amp; research org from 2 to 50+ people · Healthcare &amp; digital health</span>
-          </div>
-        </div>
-        <div class="reveal timeline-item">
-          <div class="timeline-line"></div>
-          <div class="timeline-dot"></div>
-          <div>
-            <strong class="timeline-role">Consulting — Facebook, LinkedIn, Intuit</strong>
-            <span class="timeline-date">Jan 2009 – Mar 2019</span>
-            <span class="timeline-desc">UX research, product voice &amp; content strategy, design leadership, A/B testing</span>
-          </div>
-        </div>
-        <div class="reveal timeline-item">
-          <div class="timeline-line"></div>
-          <div class="timeline-dot"></div>
-          <div>
-            <strong class="timeline-role">Financial Engines — Senior Director, Brand</strong>
-            <span class="timeline-date">Jun 2012 – Dec 2016</span>
-            <span class="timeline-desc">Customer research, new advisor offer, corporate rebrand, acquisition integration</span>
-          </div>
-        </div>
-        <div class="reveal timeline-item">
-          <div class="timeline-line"></div>
-          <div class="timeline-dot"></div>
-          <div>
-            <strong class="timeline-role">eBay — Principal, User Experience Design</strong>
-            <span class="timeline-date">Sep 2006 – Dec 2008</span>
-            <span class="timeline-desc">Two major site redesigns, design system, content strategy practice, moved org off waterfall</span>
-          </div>
-        </div>
-        <div class="reveal timeline-item">
-          <div class="timeline-line"></div>
-          <div class="timeline-dot"></div>
-          <div>
-            <strong class="timeline-role">Yahoo! Travel — Product Manager</strong>
-            <span class="timeline-date">Sep 2001 – Apr 2005</span>
-            <span class="timeline-desc">Managed licensing relationships with media partners and travel publishers; transitioned product content from 3rd party to user-generated</span>
-          </div>
-        </div>
-        <div class="reveal timeline-item">
-          <div class="timeline-line"></div>
-          <div class="timeline-dot"></div>
-          <div>
-            <strong class="timeline-role">Scient Inc — Director, Customer Experience</strong>
-            <span class="timeline-date">Aug 1999 – Apr 2001</span>
-            <span class="timeline-desc">Led global content strategy community of 40–70 people; facilitated knowledge sharing, staffing, and business development</span>
-          </div>
-        </div>
-        <div class="reveal timeline-item">
-          <div class="timeline-line"></div>
-          <div class="timeline-dot"></div>
-          <div>
-            <strong class="timeline-role">Travelocity — Design Lead</strong>
-            <span class="timeline-date">1995 – 1997</span>
-            <span class="timeline-desc">Managed the design team that helped launch the first major online travel site</span>
-          </div>
-        </div>
+        <div class="reveal timeline-item"><div class="timeline-line"></div><div class="timeline-dot"></div><div><strong class="timeline-role">Apple — Program Lead, Voice of the Customer</strong><span class="timeline-date">Oct 2022 – Present</span><span class="timeline-desc">Voice of the Customer program, design org strategy, enterprise technology</span></div></div>
+        <div class="reveal timeline-item"><div class="timeline-line"></div><div class="timeline-dot"></div><div><strong class="timeline-role">Teladoc / Livongo — VP, Product Design &amp; User Research</strong><span class="timeline-date">Apr 2019 – Sep 2022</span><span class="timeline-desc">Scaled design &amp; research org from 2 to 50+ people · Healthcare &amp; digital health</span></div></div>
+        <div class="reveal timeline-item"><div class="timeline-line"></div><div class="timeline-dot"></div><div><strong class="timeline-role">Consulting — Facebook, LinkedIn, Intuit</strong><span class="timeline-date">Jan 2009 – Mar 2019</span><span class="timeline-desc">UX research, product voice &amp; content strategy, design leadership, A/B testing</span></div></div>
+        <div class="reveal timeline-item"><div class="timeline-line"></div><div class="timeline-dot"></div><div><strong class="timeline-role">Financial Engines — Senior Director, Brand</strong><span class="timeline-date">Jun 2012 – Dec 2016</span><span class="timeline-desc">Customer research, new advisor offer, corporate rebrand, acquisition integration</span></div></div>
+        <div class="reveal timeline-item"><div class="timeline-line"></div><div class="timeline-dot"></div><div><strong class="timeline-role">eBay — Principal, User Experience Design</strong><span class="timeline-date">Sep 2006 – Dec 2008</span><span class="timeline-desc">Two major site redesigns, design system, content strategy practice</span></div></div>
+        <div class="reveal timeline-item"><div class="timeline-line"></div><div class="timeline-dot"></div><div><strong class="timeline-role">Yahoo! Travel — Product Manager</strong><span class="timeline-date">Sep 2001 – Apr 2005</span><span class="timeline-desc">Managed licensing relationships with media partners and travel publishers; transitioned product content from 3rd party to user-generated</span></div></div>
+        <div class="reveal timeline-item"><div class="timeline-line"></div><div class="timeline-dot"></div><div><strong class="timeline-role">Scient Inc — Director, Customer Experience</strong><span class="timeline-date">Aug 1999 – Apr 2001</span><span class="timeline-desc">Led global content strategy community of 40–70 people; facilitated knowledge sharing, staffing, and business development</span></div></div>
+        <div class="reveal timeline-item"><div class="timeline-line"></div><div class="timeline-dot"></div><div><strong class="timeline-role">Travelocity — Managing Producer</strong><span class="timeline-date">1995 – 1997</span><span class="timeline-desc">Managed the producer team that helped launch the first major online travel site</span></div></div>
       </div>
       <div class="skills-col">
-        <div class="reveal skill-group">
-          <h4>Leadership</h4>
-          <div class="skill-pills">
-            <span>Design org scaling</span><span>Hiring &amp; team building</span><span>Executive influence</span>
-            <span>Cross-functional partnership</span><span>Culture change</span><span>Stakeholder management</span>
-          </div>
-        </div>
-        <div class="reveal skill-group">
-          <h4>Research &amp; Strategy</h4>
-          <div class="skill-pills">
-            <span>User research</span><span>Qualitative methods</span><span>Quantitative methods</span>
-            <span>VoC programs</span><span>CSAT &amp; satisfaction measurement</span><span>Customer segmentation</span>
-            <span>Journey mapping</span><span>A/B testing</span>
-          </div>
-        </div>
-        <div class="reveal skill-group">
-          <h4>Design &amp; Craft</h4>
-          <div class="skill-pills">
-            <span>Product design</span><span>Brand strategy</span><span>Design systems</span>
-            <span>Content strategy</span><span>Human-centered design</span><span>Service design</span><span>Experience principles</span>
-          </div>
-        </div>
-        <div class="reveal skill-group">
-          <h4>Industries</h4>
-          <div class="skill-pills">
-            <span>Healthcare &amp; digital health</span><span>Enterprise technology</span><span>Fintech</span>
-            <span>E-commerce</span><span>Social media</span><span>Travel</span><span>Collaboration &amp; Productivity</span>
-          </div>
-        </div>
+        <div class="reveal skill-group"><h4>Leadership</h4><div class="skill-pills"><span>Design org scaling</span><span>Hiring &amp; team building</span><span>Executive influence</span><span>Cross-functional partnership</span><span>Culture change</span><span>Stakeholder management</span></div></div>
+        <div class="reveal skill-group"><h4>Research &amp; Strategy</h4><div class="skill-pills"><span>User research</span><span>Qualitative methods</span><span>Quantitative methods</span><span>VoC programs</span><span>CSAT &amp; satisfaction measurement</span><span>Customer segmentation</span><span>Journey mapping</span><span>A/B testing</span></div></div>
+        <div class="reveal skill-group"><h4>Design &amp; Craft</h4><div class="skill-pills"><span>Product design</span><span>Brand strategy</span><span>Design systems</span><span>Content strategy</span><span>Human-centered design</span><span>Service design</span><span>Experience principles</span></div></div>
+        <div class="reveal skill-group"><h4>Industries</h4><div class="skill-pills"><span>Healthcare &amp; digital health</span><span>Enterprise technology</span><span>Fintech</span><span>E-commerce</span><span>Social media</span><span>Travel</span><span>Collaboration &amp; Productivity</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====== CONTACT ====== -->
 <section id="contact" class="contact-section">
   <div class="contact-inner reveal">
     <p class="contact-eyebrow">Get In Touch</p>
@@ -738,26 +587,24 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     <p class="contact-blurb">I'm interested in senior design and research leadership roles where I can build high-performing teams, shape product strategy, and bring rigorous human-centered thinking to complex problems.</p>
     <div class="contact-btn-row">
       <a href="mailto:annelisebishop@gmail.com" class="contact-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
         annelisebishop@gmail.com
       </a>
       <a href="https://linkedin.com/in/annbishop" target="_blank" rel="noopener noreferrer" class="contact-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
         linkedin.com/in/annbishop
       </a>
       <a href="tel:6503800599" class="contact-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         650.380.0599
       </a>
     </div>
   </div>
 </section>
 
-<!-- ====== FOOTER ====== -->
 <footer class="site-footer">Ann Bishop · Product, Design &amp; Research Leadership</footer>
 
 <script>
-  // Nav: transparent/white over hero, cream+blur once scrolled past it
   const nav = document.querySelector('.main-nav');
   function updateNav() {
     if (window.scrollY > 60) nav.classList.add('scrolled');
@@ -765,42 +612,21 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   }
   updateNav();
   window.addEventListener('scroll', updateNav, { passive: true });
-
-  // Mobile menu toggle
   const menuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
-  });
+  menuBtn.addEventListener('click', () => { mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block'; });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.style.display = 'none'));
-
-  // Case study expand/collapse
   document.querySelectorAll('[data-case]').forEach(card => {
-    card.querySelector('.case-header').addEventListener('click', () => {
-      card.classList.toggle('open');
-    });
+    card.querySelector('.case-header').addEventListener('click', () => { card.classList.toggle('open'); });
   });
-
-  // Scroll-reveal via IntersectionObserver, staggered within groups
-  const groups = [
-    document.querySelectorAll('.client-badge'),
-  ];
   const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        io.unobserve(entry.target);
-      }
-    });
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); } });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.reveal').forEach((el, i) => {
-    // stagger children within the same parent container slightly
+  document.querySelectorAll('.reveal').forEach((el) => {
     const siblingIndex = Array.from(el.parentElement.children).indexOf(el);
     el.style.transitionDelay = Math.min(siblingIndex * 45, 300) + 'ms';
     io.observe(el);
   });
 </script>
 
-</body>
-</html>
+</body></html>
