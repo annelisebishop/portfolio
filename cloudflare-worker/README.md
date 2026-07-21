@@ -1,9 +1,11 @@
 # Password-protecting this site with Cloudflare
 
-This gates your custom domain behind a real username/password (HTTP Basic
-Auth), enforced at Cloudflare's edge before the request ever reaches
-GitHub Pages. `basic-auth-worker.js` is the whole thing — no build step,
-no dependencies, just paste it into the Cloudflare dashboard.
+This gates your custom domain behind a real username/password, enforced
+at Cloudflare's edge before the request ever reaches GitHub Pages.
+Visitors see a styled login page (not the browser's plain Basic Auth
+prompt); a correct login sets a signed, HttpOnly session cookie that's
+valid for 7 days. `basic-auth-worker.js` is the whole thing — no build
+step, no dependencies, just paste it into the Cloudflare dashboard.
 
 **Heads up:** this protects your *custom domain* only. The default
 `yourusername.github.io` fallback URL that GitHub always publishes
@@ -41,9 +43,9 @@ Pick a non-guessable GitHub username/repo name and don't link to the
 
    Replace `yourdomain.com` with your actual domain.
 5. **Test it.** Visit your domain in a private/incognito window — you
-   should get a browser username/password prompt before anything loads.
-   Wrong credentials (or none) get a 401; correct ones pass through to
-   the real site.
+   should see a styled sign-in page before anything loads. Wrong
+   credentials show an error and reprompt; correct ones set a 7-day
+   session cookie and pass through to the real site.
 
 ## Changing the password later
 
