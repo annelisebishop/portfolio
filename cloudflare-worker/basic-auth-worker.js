@@ -43,11 +43,19 @@ export default {
 
 async function handleLogin(request, env) {
   const form = await request.formData();
-  const user = String(form.get('username') || '');
-  const pass = String(form.get('password') || '');
+  const user = String(form.get('username') || '').trim();
+  const pass = String(form.get('password') || '').trim();
+  const expectedUser = env.AUTH_USERNAME.trim();
+  const expectedPass = env.AUTH_PASSWORD.trim();
   const redirectTo = sanitizeRedirect(String(form.get('redirect') || '/'));
 
-  if (!(await timingSafeEqual(user, env.AUTH_USERNAME)) || !(await timingSafeEqual(pass, env.AUTH_PASSWORD))) {
+  const userMatch = await timingSafeEqual(user, expectedUser);
+  const passMatch = await timingSafeEqual(pass, expectedPass);
+
+  if (!userMatch || !passMatch) {
+    console.log(
+      `login failed: userLen=${user.length} expectedUserLen=${expectedUser.length} userMatch=${userMatch} passLen=${pass.length} expectedPassLen=${expectedPass.length} passMatch=${passMatch}`
+    );
     return renderLoginPage(redirectTo, true);
   }
 
