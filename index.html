@@ -1,498 +1,801 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ann Bishop · Product, Design & Research Leadership</title>
-  <meta name="description" content="Ann Bishop is a veteran leader in design, product, and user research.">
-  <link rel="stylesheet" href="dist/output.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ann Bishop · Product, Design & Research Leadership</title>
+<meta name="description" content="Ann Bishop is a veteran leader in design, product, and user research.">
+<style>
+
+/* ============ Fonts (self-hosted, variable) ============ */
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('fonts/instrumentsans-normal-var.woff2') format('woff2');
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('fonts/instrumentsans-italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fraunces';
+  src: url('fonts/fraunces-normal-var.woff2') format('woff2');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fraunces';
+  src: url('fonts/fraunces-italic-var.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('fonts/ebgaramond-italic-var.woff2') format('woff2');
+  font-weight: 400 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ============ Tokens ============ */
+:root {
+  --brand:       #D4431C;
+  --brand-dark:  #C93B16;
+  --brand-light: #E05A6A;
+  --gradient:    linear-gradient(138deg, #C93B16 0%, #D4431C 38%, #E05A6A 100%);
+  --cream:       #FFFAF7;
+  --warm:        #F5EFE9;
+  --border:      #E5DAD2;
+  --ink:         #1E1E1E;
+  --gray-body:   #444444;
+  --gray-label:  #777777;
+  --gray-quote:  #555555;
+  --font-sans:     'Instrument Sans', sans-serif;
+  --font-display:  'Fraunces', serif;
+  --font-serif:    'EB Garamond', Georgia, serif;
+}
+
+/* ============ Reset / base ============ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { display: block; max-width: 100%; }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+h1, h2, h3, h4 { font-family: var(--font-display); }
+
+/* Scroll-reveal (fade + rise on enter viewport) */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s, transform 0.65s; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* ============ NAV ============ */
+.main-nav {
+  position: fixed; inset: 0 0 auto; z-index: 100;
+  background: transparent;
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  padding: 0 56px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+  transition: background 0.35s, border-color 0.35s, -webkit-backdrop-filter 0.35s;
+}
+.main-nav.scrolled {
+  background: rgba(255,250,247,0.96);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  border-bottom-color: var(--border);
+}
+.nav-logo {
+  font-family: var(--font-display); font-size: 1.4rem; font-weight: 700;
+  color: var(--brand); letter-spacing: -0.01em;
+  opacity: 0; transform: translateY(-6px); pointer-events: none;
+  transition: opacity 0.35s, transform 0.35s;
+}
+.main-nav.scrolled .nav-logo { opacity: 1; transform: translateY(0); }
+.nav-logo .a-tight { letter-spacing: -0.07em; }
+.nav-links-list { display: flex; align-items: center; gap: 36px; }
+.nav-link { color: rgba(255,255,255,0.82); font-size: 1rem; transition: color 0.2s; }
+.main-nav.scrolled .nav-link { color: var(--gray-label); }
+.nav-link:hover { color: var(--brand) !important; }
+.resume-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.875rem; font-weight: 600; color: white;
+  border: 1.5px solid rgba(255,255,255,0.6); border-radius: 6px; padding: 6px 14px;
+  letter-spacing: 0.01em; transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.main-nav.scrolled .resume-link { color: var(--brand); border-color: var(--brand); }
+.resume-link:hover { background: var(--brand); color: white !important; border-color: var(--brand) !important; }
+.nav-mobile-btn { display: none; color: white; transition: color 0.2s; }
+.main-nav.scrolled .nav-mobile-btn { color: var(--brand); }
+#mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--cream); border-bottom: 1px solid var(--border); z-index: 99; padding: 8px 0 16px; }
+#mobile-menu a { display: block; padding: 12px 24px; font-size: 1rem; color: var(--ink); font-weight: 500; }
+
+/* ============ HERO ============ */
+.hero-section {
+  min-height: 100vh;
+  background: var(--gradient);
+  display: flex; align-items: flex-start;
+  padding: 140px 80px 84px;
+  position: relative; overflow: hidden;
+}
+.hero-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(at 78% 18%, rgba(255,255,255,0.11) 0%, transparent 58%);
+  pointer-events: none;
+}
+.hero-fade-bottom {
+  position: absolute; bottom: -1px; left: 0; right: 0; height: 100px;
+  background: linear-gradient(transparent, var(--cream));
+  pointer-events: none;
+}
+.hero-inner { position: relative; max-width: 880px; }
+.hero-eyebrow {
+  font-size: 0.73rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.68); margin-bottom: 22px;
+}
+.hero-name {
+  font-family: var(--font-display); font-size: clamp(3.8rem, 8.5vw, 6.8rem); font-weight: 900;
+  color: white; line-height: 0.96; letter-spacing: -0.03em; margin-bottom: 30px;
+}
+.hero-sub {
+  font-size: clamp(1.1rem, 1.8vw, 1.42rem); color: rgba(255,255,255,0.88); max-width: 620px;
+  line-height: 1.58; font-weight: 400; margin-bottom: 52px;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: white; color: var(--brand); font-weight: 600; font-size: 0.9rem;
+  padding: 15px 30px; border-radius: 6px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.16);
+  transition: transform 0.22s, box-shadow 0.22s;
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+/* ============ shared section bits ============ */
+.section-eyebrow {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
+  color: var(--brand); margin-bottom: 14px;
+}
+.section-heading {
+  font-family: var(--font-display); font-size: clamp(1.9rem, 3vw, 2.75rem); font-weight: 700;
+  line-height: 1.12; letter-spacing: -0.025em; color: var(--ink);
+}
+
+/* ============ ABOUT ============ */
+.about-section { padding: 104px 80px; background: white; }
+.about-inner { max-width: 760px; margin: 0 auto; }
+.about-heading-wrap { margin-bottom: 28px; }
+.about-body p { font-size: 1.04rem; color: var(--gray-body); line-height: 1.82; margin-bottom: 20px; }
+.about-body p:last-child { margin-bottom: 0; }
+.client-group { margin-top: 44px; }
+.client-label {
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--gray-label); margin-bottom: 14px;
+}
+.client-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+.client-row:last-child { margin-bottom: 0; }
+.client-badge {
+  background: white; border: 1.5px solid var(--border); border-radius: 10px;
+  display: flex; align-items: center; gap: 8px; padding: 8px 14px 8px 10px;
+  flex-shrink: 0; height: 44px;
+}
+.client-badge img { width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; }
+.client-badge span { font-size: 0.78rem; font-weight: 600; color: var(--gray-body); white-space: nowrap; line-height: 1; }
+
+/* ============ PHILOSOPHY ============ */
+.philosophy-section { padding: 84px 80px; background: var(--warm); }
+.philosophy-inner { max-width: 740px; margin: 0 auto; text-align: center; }
+.philosophy-quote {
+  font-family: var(--font-serif); font-style: italic; font-size: clamp(1.45rem, 2.4vw, 2.05rem);
+  line-height: 1.58; color: var(--ink); font-weight: 400;
+  border-left: 4px solid var(--brand); padding-left: clamp(1.2rem, 2vw, 2rem); text-align: left;
+}
+
+/* ============ WORK ============ */
+.work-section { padding: 104px 80px; background: white; }
+.work-inner { max-width: 1080px; margin: 0 auto; }
+.work-heading-wrap { margin-bottom: 56px; }
+.case-list { display: flex; flex-direction: column; gap: 18px; }
+.case-card {
+  border: 1.5px solid var(--border); border-radius: 14px; overflow: hidden;
+  background: white; box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.case-header {
+  display: grid; grid-template-columns: 56px 1fr 44px; gap: 20px; align-items: center;
+  padding: 32px 36px; cursor: pointer; user-select: none; width: 100%; text-align: left;
+}
+.case-num { font-family: var(--font-display); font-size: 2.6rem; font-weight: 900; color: var(--border); line-height: 1; }
+.case-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--brand); margin-bottom: 9px; }
+.case-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--ink); margin-bottom: 9px; line-height: 1.22; }
+.case-summary { font-size: 0.9rem; color: var(--gray-label); line-height: 1.6; }
+.case-toggle-btn {
+  width: 38px; height: 38px; border-radius: 50%; background: var(--warm); color: var(--gray-label);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: background 0.25s, color 0.25s, transform 0.35s;
+}
+.case-card.open .case-toggle-btn { background: var(--brand); color: white; transform: rotate(45deg); }
+.case-expand { max-height: 0; overflow: hidden; transition: max-height 0.52s cubic-bezier(0.4,0,0.2,1); }
+.case-card.open .case-expand { max-height: 3200px; }
+.case-body-inner { padding: 0 0 48px; border-top: 1px solid var(--border); }
+
+.case-image-wrap { width: 100%; max-height: 380px; overflow: hidden; background: var(--warm); position: relative; margin-bottom: 40px; }
+.case-image-wrap img { width: 100%; height: auto; display: block; }
+.case-image-wrap.blur img { filter: blur(3px); }
+.case-caption { font-size: 0.75rem; color: var(--gray-label); font-style: italic; margin: 8px 0 0; padding-left: 2px; }
+.case-image-group { margin-bottom: 40px; }
+.case-image-hero { width: 100%; max-height: 380px; overflow: hidden; background: var(--warm); margin-bottom: 4px; }
+.case-image-hero img { width: 100%; height: auto; display: block; }
+.case-image-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+.case-image-2col div { background: var(--warm); }
+.case-image-2col img { width: 100%; height: auto; display: block; }
+.case-image-single { display: grid; grid-template-columns: minmax(0, 480px); gap: 4px; justify-content: center; margin-top: 4px; }
+.case-image-single div { background: var(--warm); }
+.case-image-single img { width: 100%; height: auto; display: block; }
+
+.case-content { padding: 0 36px; }
+.case-body-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px 56px; margin-bottom: 36px; }
+.case-col { display: flex; flex-direction: column; gap: 32px; }
+.case-block-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gray-label); margin-bottom: 12px; }
+.case-block-text { font-size: 0.93rem; color: var(--gray-body); line-height: 1.78; }
+.case-arrow-list { display: flex; flex-direction: column; gap: 9px; }
+.case-arrow-list li { font-size: 0.92rem; color: var(--gray-body); line-height: 1.65; padding-left: 22px; position: relative; }
+.case-arrow-list li::before { content: '→'; position: absolute; left: 0; color: var(--brand); font-size: 0.8rem; top: 2px; }
+.case-insight { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; line-height: 1.68; color: var(--gray-quote); }
+.outcomes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding-top: 28px; border-top: 1px solid var(--border); }
+.outcome-tile { padding: 22px 18px; background: var(--warm); border-radius: 10px; text-align: center; }
+.outcome-number { font-family: var(--font-display); font-size: 1.85rem; font-weight: 900; color: var(--brand); line-height: 1; margin-bottom: 9px; }
+.outcome-label { font-size: 0.76rem; color: var(--gray-label); line-height: 1.52; }
+.work-outro { margin-top: 48px; text-align: center; font-size: 1rem; color: var(--gray-label); font-style: italic; font-family: var(--font-display); }
+
+/* ============ BACKGROUND ============ */
+.background-section { padding: 104px 80px; background: var(--warm); }
+.background-inner { max-width: 1080px; margin: 0 auto; }
+.background-heading-wrap { margin-bottom: 56px; }
+.bg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 72px; }
+.timeline-item { display: flex; gap: 18px; padding-bottom: 26px; position: relative; }
+.timeline-line { position: absolute; left: 4px; top: 14px; bottom: 0; width: 1.5px; background: var(--border); }
+.timeline-item:last-child .timeline-line { display: none; }
+.timeline-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--brand); margin-top: 5px; flex-shrink: 0; }
+.timeline-role { display: block; font-size: 0.92rem; font-weight: 600; color: var(--ink); margin-bottom: 2px; line-height: 1.4; }
+.timeline-date { font-size: 0.8rem; color: var(--brand); font-weight: 500; display: block; margin-bottom: 2px; }
+.timeline-desc { font-size: 0.8rem; color: var(--gray-label); line-height: 1.52; display: block; }
+.skills-col { display: flex; flex-direction: column; gap: 28px; }
+.skill-group h4 {
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--gray-label); margin-bottom: 12px;
+}
+.skill-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-pills span {
+  padding: 5px 12px; background: white; border: 1px solid var(--border); border-radius: 5px;
+  font-size: 0.82rem; font-weight: 500; color: var(--ink);
+}
+
+/* ============ CONTACT ============ */
+.contact-section { background: var(--gradient); padding: 104px 80px; text-align: center; }
+.contact-inner { max-width: 600px; margin: 0 auto; }
+.contact-eyebrow {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.65); margin-bottom: 14px;
+}
+.contact-heading {
+  font-family: var(--font-display); font-size: clamp(1.9rem, 3vw, 2.75rem); font-weight: 700;
+  line-height: 1.12; letter-spacing: -0.025em; color: white; margin-bottom: 20px;
+}
+.contact-blurb { color: rgba(255,255,255,0.86); font-size: 1.06rem; line-height: 1.66; margin-bottom: 52px; }
+.contact-btn-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+.contact-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: white; color: var(--brand); font-weight: 600; font-size: 0.88rem;
+  padding: 14px 22px; border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  transition: transform 0.22s, box-shadow 0.22s;
+}
+.contact-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.16); }
+.contact-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ============ FOOTER ============ */
+.site-footer {
+  background: #191919; color: rgba(255,255,255,0.36); text-align: center;
+  padding: 22px 24px; font-size: 0.75rem; letter-spacing: 0.04em;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .main-nav { padding: 0 24px; }
+  .nav-links-list { display: none; }
+  .nav-mobile-btn { display: block; }
+  .hero-section, .about-section, .philosophy-section, .work-section, .background-section, .contact-section {
+    padding-left: 24px; padding-right: 24px;
+  }
+  .about-body { max-width: 100%; }
+  .bg-grid { grid-template-columns: 1fr; gap: 56px 0; }
+  .case-body-grid { grid-template-columns: 1fr; gap: 28px; }
+  .case-image-2col { grid-template-columns: 1fr; }
+  .outcomes-grid { grid-template-columns: 1fr; }
+  .case-header { grid-template-columns: 40px 1fr 40px; padding: 24px 20px; }
+  .case-content { padding: 0 20px; }
+}
+</style>
 </head>
-<body class="bg-cream text-ink text-base leading-relaxed">
+<body>
 
-  <!-- ====== NAV ====== -->
-  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-100 transition-colors duration-200 border-b border-transparent">
-    <div class="max-w-[1280px] mx-auto px-6 md:px-10 flex items-center justify-between h-16">
-      <a href="#" class="nav-logo font-display font-bold text-xl text-white transition-colors duration-200">Ann Bishop</a>
-      <ul class="nav-links hidden md:flex items-center gap-7">
-        <li><a href="#about" class="text-[13.5px] font-medium text-white/82 hover:opacity-70 transition-opacity">About</a></li>
-        <li><a href="#work" class="text-[13.5px] font-medium text-white/82 hover:opacity-70 transition-opacity">Work</a></li>
-        <li><a href="#background" class="text-[13.5px] font-medium text-white/82 hover:opacity-70 transition-opacity">Background</a></li>
-        <li><a href="#contact" class="text-[13.5px] font-medium text-white/82 hover:opacity-70 transition-opacity">Contact</a></li>
-        <li><a href="/Ann_Bishop_Resume.pdf" target="_blank" class="text-[13.5px] font-medium text-white/82 hover:opacity-70 transition-opacity">Resume ↓</a></li>
-      </ul>
-      <button class="nav-mobile-btn md:hidden p-1 text-white/82 transition-colors duration-200" id="mobile-menu-btn" aria-label="Open menu">
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="6"  x2="19" y2="6"/>
-          <line x1="3" y1="11" x2="19" y2="11"/>
-          <line x1="3" y1="16" x2="19" y2="16"/>
-        </svg>
-      </button>
-    </div>
-    <div id="mobile-menu" class="hidden bg-cream border-t border-border-warm pt-3 pb-4">
-      <a href="#about" class="block px-6 py-2.5 text-[15px] font-medium text-ink">About</a>
-      <a href="#work" class="block px-6 py-2.5 text-[15px] font-medium text-ink">Work</a>
-      <a href="#background" class="block px-6 py-2.5 text-[15px] font-medium text-ink">Background</a>
-      <a href="#contact" class="block px-6 py-2.5 text-[15px] font-medium text-ink">Contact</a>
-      <a href="/Ann_Bishop_Resume.pdf" target="_blank" class="block px-6 py-2.5 text-[15px] font-medium text-ink">Resume ↓</a>
-    </div>
-  </nav>
+<!-- ====== NAV ====== -->
+<nav class="main-nav">
+  <span class="nav-logo"><span class="a-tight">A</span>nn Bishop</span>
+  <ul class="nav-links-list">
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#work" class="nav-link">Work</a></li>
+    <li><a href="#background" class="nav-link">Background</a></li>
+    <li><a href="#contact" class="nav-link">Contact</a></li>
+    <li><a href="/Ann_Bishop_Resume.pdf" download="Ann_Bishop_Resume.pdf" class="resume-link">Resume<span>↓</span></a></li>
+  </ul>
+  <button class="nav-mobile-btn" id="mobile-menu-btn" aria-label="Open menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+<div id="mobile-menu">
+  <a href="#about">About</a>
+  <a href="#work">Work</a>
+  <a href="#background">Background</a>
+  <a href="#contact">Contact</a>
+  <a href="/Ann_Bishop_Resume.pdf" download="Ann_Bishop_Resume.pdf">Resume ↓</a>
+</div>
 
-  <!-- ====== HERO ====== -->
-  <section id="hero" class="min-h-screen flex flex-col items-start justify-start pb-20 pt-[200px]" style="background: linear-gradient(138deg, #C93B16 0%, #D4431C 38%, #E05A6A 100%);">
-    <div class="max-w-[1280px] w-full mx-auto px-6 md:px-10">
-      <div class="max-w-[550px] flex flex-col">
-        <p class="text-[11px] font-semibold tracking-[0.22em] uppercase text-white/60 mb-8">Product, Design &amp; Research Leadership</p>
-        <h1 class="font-display font-black text-white leading-[0.92] tracking-[-0.03em] text-[clamp(3.4rem,8.5vw,6.8rem)] mb-8">Ann Bishop</h1>
-        <p class="text-white/75 text-[1.15rem] leading-relaxed mb-12">Building the teams and systems that turn what people need into what a product does next.</p>
-        <a href="#work" class="inline-block bg-white text-brand text-sm font-semibold tracking-wide px-8 py-[15px] rounded-md hover:opacity-90 transition-opacity w-fit">View selected work</a>
+<!-- ====== HERO ====== -->
+<section id="hero" class="hero-section">
+  <div class="hero-glow"></div>
+  <div class="hero-fade-bottom"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Product, Design &amp; Research Leadership</p>
+    <h1 class="hero-name">Ann Bishop</h1>
+    <p class="hero-sub">Building the teams and systems that turn what people need into what a product does next.</p>
+    <a href="#work" class="hero-cta">View selected work
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ====== ABOUT ====== -->
+<section id="about" class="about-section">
+  <div class="about-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">About</p>
+      <div class="about-heading-wrap">
+        <h2 class="section-heading">Human-centered design, <br>from the ground up.</h2>
+      </div>
+      <div class="about-body">
+        <p>I'm a veteran leader in design, product, and user research. Starting with launching Travelocity, one of the first online travel sites, to establishing content as a design practice at eBay, to building a 50-person design and research org at Livongo/Teladoc. At Apple, I managed a team of enterprise product managers and taught a popular innovative thinking course before building an internal Voice of the Customer program.</p>
+        <p>My path runs through in-house leadership at Apple, Teladoc, Ibotta, and eBay, and consulting engagements with Facebook, LinkedIn, and Intuit. The throughline at every stop: use rigorous research to find what's actually true about users and the business, then build the team and systems that makes acting on it repeatable.</p>
       </div>
     </div>
-  </section>
-
-  <!-- ====== ABOUT ====== -->
-  <section id="about" class="bg-white py-24">
-    <div class="max-w-[1280px] mx-auto px-6 md:px-10">
-      <span class="block text-[11px] font-semibold tracking-[0.18em] uppercase text-brand mb-7">About</span>
-      <div class="grid md:grid-cols-2 gap-20 mb-16">
-        <div>
-          <h2 class="font-display font-bold text-[clamp(2rem,3.5vw,2.75rem)] leading-[1.08] tracking-[-0.025em] text-ink">Human-centered design,<br>from the ground up.</h2>
-        </div>
-        <div class="text-[16.5px] leading-[1.7] text-ink/60 space-y-5">
-          <p>I'm a veteran leader in design, product, and user research. Starting with launching Travelocity, one of the first online travel sites, to establishing content as a design practice at eBay, to building a 50-person design and research org at Livongo/Teladoc. At Apple, I managed a team of enterprise product managers and taught a popular innovative thinking course before building an internal Voice of the Customer program.</p>
-          <p>My path runs through in-house leadership at Apple, Teladoc, Ibotta, and eBay, and consulting engagements with Facebook, LinkedIn, and Intuit. The throughline at every stop: use rigorous research to find what's actually true about users and the business, then build the team and systems that makes acting on it repeatable.</p>
-        </div>
+    <div class="reveal client-group">
+      <p class="client-label">In-house leadership</p>
+      <div class="client-row">
+        <div class="client-badge" title="Apple"><img src="images/favicons/apple.com.png" alt="Apple"><span>Apple</span></div>
+        <div class="client-badge" title="Teladoc"><img src="images/favicons/teladoc.com.png" alt="Teladoc"><span>Teladoc</span></div>
+        <div class="client-badge" title="Financial Engines"><img src="images/favicons/financialengines.com.png" alt="Financial Engines"><span>Financial Engines</span></div>
+        <div class="client-badge" title="eBay"><img src="images/favicons/ebay.com.png" alt="eBay"><span>eBay</span></div>
+        <div class="client-badge" title="Travelocity"><img src="images/favicons/travelocity.com.png" alt="Travelocity"><span>Travelocity</span></div>
       </div>
-      <div class="grid md:grid-cols-2 gap-10 border-t border-border-warm pt-12">
-        <div>
-          <p class="text-[11px] font-semibold tracking-[0.18em] uppercase text-brand mb-5">In-house leadership</p>
-          <div class="flex flex-wrap gap-2.5">
-            <span class="text-[13px] font-medium text-ink/60 border border-border-warm px-4 py-1.5 rounded">Apple</span>
-            <span class="text-[13px] font-medium text-ink/60 border border-border-warm px-4 py-1.5 rounded">Teladoc</span>
-            <span class="text-[13px] font-medium text-ink/60 border border-border-warm px-4 py-1.5 rounded">Financial Engines</span>
-            <span class="text-[13px] font-medium text-ink/60 border border-border-warm px-4 py-1.5 rounded">eBay</span>
-            <span class="text-[13px] font-medium text-ink/60 border border-border-warm px-4 py-1.5 rounded">Travelocity</span>
-          </div>
-        </div>
-        <div>
-          <p class="text-[11px] font-semibold tracking-[0.18em] uppercase text-brand mb-5">Consulting clients</p>
-          <div class="flex flex-wrap gap-2.5">
-            <span class="text-[13px] font-medium text-ink/60 border border-border-warm px-4 py-1.5 rounded">Facebook</span>
-            <span class="text-[13px] font-medium text-ink/60 border border-border-warm px-4 py-1.5 rounded">LinkedIn</span>
-            <span class="text-[13px] font-medium text-ink/60 border border-border-warm px-4 py-1.5 rounded">Intuit</span>
-          </div>
-        </div>
+      <p class="client-label">Consulting clients</p>
+      <div class="client-row">
+        <div class="client-badge" title="Facebook"><img src="images/favicons/facebook.com.png" alt="Facebook"><span>Facebook</span></div>
+        <div class="client-badge" title="LinkedIn"><img src="images/favicons/linkedin.com.png" alt="LinkedIn"><span>LinkedIn</span></div>
+        <div class="client-badge" title="Intuit"><img src="images/favicons/intuit.com.png" alt="Intuit"><span>Intuit</span></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ====== PHILOSOPHY ====== -->
-  <section id="philosophy" class="bg-warm py-20">
-    <div class="max-w-[1280px] mx-auto px-6 md:px-10">
-      <div class="max-w-[720px] mx-auto text-center">
-        <p class="font-serif italic text-[clamp(1.3rem,2.2vw,1.65rem)] leading-relaxed text-ink/78">I believe people, and teams, are often more capable than they realize. My focus as a leader is to help people wade out of their comfort zone&nbsp;— that's where teams build trust, innovation happens, and careers grow.</p>
+<!-- ====== PHILOSOPHY ====== -->
+<section id="philosophy" class="philosophy-section">
+  <div class="philosophy-inner reveal">
+    <blockquote class="philosophy-quote">I believe people, and teams, are often more capable than they realize. My focus as a leader is to help people wade out of their comfort zone — that's where teams build trust, innovation happens, and careers grow.</blockquote>
+  </div>
+</section>
+
+<!-- ====== WORK ====== -->
+<section id="work" class="work-section">
+  <div class="work-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Selected Work</p>
+      <div class="work-heading-wrap">
+        <h2 class="section-heading">Three ways I've turned <br>research into results.</h2>
       </div>
     </div>
-  </section>
 
-  <!-- ====== WORK ====== -->
-  <section id="work" class="bg-white py-24">
-    <div class="max-w-[1280px] mx-auto px-6 md:px-10">
-      <span class="block text-[11px] font-semibold tracking-[0.18em] uppercase text-brand mb-7">Selected Work</span>
-      <h2 class="font-display font-bold text-[clamp(2rem,3.5vw,2.75rem)] leading-[1.08] tracking-[-0.025em] text-ink mb-16">Three ways I've turned<br>research into results.</h2>
-
+    <div class="case-list">
       <!-- Case 01 -->
-      <div class="case-study border-t border-border-warm">
-        <div class="flex flex-col md:flex-row gap-4 md:gap-10 py-12">
-          <div class="font-display font-black text-4xl leading-none text-brand/22 shrink-0 w-auto md:w-14 pt-1">01</div>
-          <div class="flex-1 min-w-0">
-            <p class="text-[11px] font-semibold tracking-[0.18em] uppercase text-brand mb-2.5">UX · Apple</p>
-            <h3 class="font-display font-bold text-[clamp(1.3rem,2.2vw,1.65rem)] leading-tight text-ink mb-3">Building a Voice of the Customer program from zero</h3>
-            <p class="text-[15px] text-ink/60 leading-[1.65] max-w-[640px] mb-5">Designed and scaled a company-wide feedback and satisfaction-measurement system with an AI-assisted signal pipeline covering dozens of internal products.</p>
-            <button class="expand-btn text-[13.5px] font-semibold text-brand flex items-center gap-2 hover:opacity-65 transition-opacity" aria-expanded="false">
-              <span class="btn-label">Read case study</span>
-              <span class="btn-arrow">↓</span>
-            </button>
+      <div class="reveal case-card" data-case>
+        <button class="case-header" type="button">
+          <span class="case-num">01</span>
+          <div>
+            <div class="case-eyebrow">UX · Apple</div>
+            <div class="case-title">Building a Voice of the Customer program from zero</div>
+            <div class="case-summary">Designed and scaled a company-wide feedback and satisfaction-measurement system with an AI-assisted signal pipeline covering dozens of internal products.</div>
           </div>
-        </div>
-        <div class="case-body hidden pb-12 pl-0 md:pl-24">
-          <figure>
-            <div class="bg-warm border border-border-warm rounded-lg h-[260px] flex items-center justify-center overflow-hidden mb-10">
-              <span class="text-[13px] text-ink/30 px-6 text-center">[ Add image: Example dashboard from the Voice of the Customer program ]</span>
+          <span class="case-toggle-btn" aria-hidden="true">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          </span>
+        </button>
+        <div class="case-expand">
+          <div class="case-body-inner">
+            <div class="case-image-group">
+              <div class="case-image-wrap blur">
+                <img src="images/example_dashboard.png" alt="CSAT dashboard — results for first party IS&T hero products">
+              </div>
+              <p class="case-caption">Example dashboard from the Voice of the Customer program</p>
             </div>
-            <figcaption class="text-xs text-ink/40 border-t border-border-warm pt-2.5 mt-2">Example dashboard from the Voice of the Customer program</figcaption>
-          </figure>
-          <div class="grid md:grid-cols-2 gap-10 mt-10 mb-10">
-            <div>
-              <p class="font-display font-bold text-[1.05rem] text-ink mb-3">The Problem</p>
-              <p class="text-[15px] leading-[1.7] text-ink/65">Apple's internal tools are used by tens of thousands of employees daily across the globe but leadership lacked a consistent way to know whether any of them actually worked for the people using them. Feedback was scattered across support tickets and hallway conversations.</p>
-            </div>
-            <div>
-              <p class="font-display font-bold text-[1.05rem] text-ink mb-3">My Role</p>
-              <p class="text-[15px] leading-[1.7] text-ink/65">Program Lead, UX &amp; Research — brought in to build this program from the ground up. Led a cross-functional team spanning data science, engineering, design, and UX research. Owned the full stack: research methodology, in-product feedback UX, data pipeline, executive-facing reporting, and the program roadmap that turned raw sentiment into product decisions.</p>
-            </div>
-          </div>
-          <div class="mb-10">
-            <p class="font-display font-bold text-[1.05rem] text-ink mb-3">What I Built</p>
-            <ul class="space-y-3">
-              <li class="flex gap-3 text-[15px] leading-[1.65] text-ink/65"><span class="text-brand shrink-0 mt-0.5">→</span>A prioritization framework that focused investment on ~15 high-impact products</li>
-              <li class="flex gap-3 text-[15px] leading-[1.65] text-ink/65"><span class="text-brand shrink-0 mt-0.5">→</span>A feedback taxonomy (active vs. passive × high vs. low urgency) to route every signal correctly</li>
-              <li class="flex gap-3 text-[15px] leading-[1.65] text-ink/65"><span class="text-brand shrink-0 mt-0.5">→</span>Two complementary mechanisms: passive always-on capture and structured CSAT campaigns</li>
-              <li class="flex gap-3 text-[15px] leading-[1.65] text-ink/65"><span class="text-brand shrink-0 mt-0.5">→</span>A redesigned intake experience — one clear, consistent flow across all priority products</li>
-              <li class="flex gap-3 text-[15px] leading-[1.65] text-ink/65"><span class="text-brand shrink-0 mt-0.5">→</span>Dual-audience dashboards: granular detail for product teams, portfolio health for executives</li>
-              <li class="flex gap-3 text-[15px] leading-[1.65] text-ink/65"><span class="text-brand shrink-0 mt-0.5">→</span>A recommendation to retire a legacy feature contributing a shrinking share of usable signal — backed by data</li>
-            </ul>
-          </div>
-          <div class="bg-warm rounded-lg px-9 py-8 mb-10">
-            <p class="font-display font-bold text-[1.05rem] text-ink mb-2.5">Defining Insight</p>
-            <p class="font-serif italic text-[1.2rem] leading-[1.65] text-ink/75">"Don't waste my time" was the clearest user signal that shaped the whole design. People didn't want five different feedback forms across five tools. They wanted one clear way to be heard, routed to the right place.</p>
-          </div>
-          <div class="grid md:grid-cols-3 gap-8">
-            <div>
-              <p class="font-display font-black text-[1.85rem] text-brand leading-none mb-2">15+</p>
-              <p class="text-[13px] text-ink/60 leading-tight">priority products with active satisfaction measurement</p>
-            </div>
-            <div>
-              <p class="font-display font-black text-[1.85rem] text-brand leading-none mb-2">25+</p>
-              <p class="text-[13px] text-ink/60 leading-tight">products with passive feedback collection</p>
-            </div>
-            <div>
-              <p class="font-display font-black text-[1.85rem] text-brand leading-none mb-2">6,300+</p>
-              <p class="text-[13px] text-ink/60 leading-tight">ratings and user sentiment comments from benchmark campaigns</p>
+            <div class="case-content">
+              <div class="case-body-grid">
+                <div class="case-col">
+                  <div>
+                    <p class="case-block-label">The Problem</p>
+                    <p class="case-block-text">Apple's internal tools are used by tens of thousands of employees daily across the globe but leadership lacked a consistent way to know whether any of them actually worked for the people using them. Feedback was scattered across support tickets and hallway conversations.</p>
+                  </div>
+                  <div>
+                    <p class="case-block-label">My Role</p>
+                    <p class="case-block-text">Program Lead, UX &amp; Research — brought in to build this program from the ground up. Led a cross-functional team spanning data science, engineering, design, and UX research. Owned the full stack: research methodology, in-product feedback UX, data pipeline, executive-facing reporting, and the program roadmap that turned raw sentiment into product decisions.</p>
+                  </div>
+                </div>
+                <div class="case-col">
+                  <div>
+                    <p class="case-block-label">What I Built</p>
+                    <ul class="case-arrow-list">
+                      <li>A prioritization framework that focused investment on ~15 high-impact products</li>
+                      <li>A feedback taxonomy (active vs. passive × high vs. low urgency) to route every signal correctly</li>
+                      <li>Two complementary mechanisms: passive always-on capture and structured CSAT campaigns</li>
+                      <li>A redesigned intake experience — one clear, consistent flow across all priority products</li>
+                      <li>Dual-audience dashboards: granular detail for product teams, portfolio health for executives</li>
+                      <li>A recommendation to retire a legacy feature contributing a shrinking share of usable signal — backed by data</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p class="case-block-label">Defining Insight</p>
+                    <p class="case-insight">"Don't waste my time" was the clearest user signal that shaped the whole design. People didn't want five different feedback forms across five tools. They wanted one clear way to be heard, routed to the right place.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="outcomes-grid">
+                <div class="outcome-tile"><div class="outcome-number">15+</div><div class="outcome-label">priority products with active satisfaction measurement</div></div>
+                <div class="outcome-tile"><div class="outcome-number">25+</div><div class="outcome-label">products with passive feedback collection</div></div>
+                <div class="outcome-tile"><div class="outcome-number">6,300+</div><div class="outcome-label">ratings and user sentiment comments from benchmark campaigns</div></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Case 02 -->
-      <div class="case-study border-t border-border-warm">
-        <div class="flex flex-col md:flex-row gap-4 md:gap-10 py-12">
-          <div class="font-display font-black text-4xl leading-none text-brand/22 shrink-0 w-auto md:w-14 pt-1">02</div>
-          <div class="flex-1 min-w-0">
-            <p class="text-[11px] font-semibold tracking-[0.18em] uppercase text-brand mb-2.5">UX · Apple</p>
-            <h3 class="font-display font-bold text-[clamp(1.3rem,2.2vw,1.65rem)] leading-tight text-ink mb-3">Sizing an invisible design organization</h3>
-            <p class="text-[15px] text-ink/60 leading-[1.65] max-w-[640px] mb-5">A qualitative research study that surfaced a large number of designers scattered across an enterprise technology org with no shared standards — and the frameworks that turned the finding into a new operating model.</p>
-            <button class="expand-btn text-[13.5px] font-semibold text-brand flex items-center gap-2 hover:opacity-65 transition-opacity" aria-expanded="false">
-              <span class="btn-label">Read case study</span>
-              <span class="btn-arrow">↓</span>
-            </button>
+      <div class="reveal case-card" data-case>
+        <button class="case-header" type="button">
+          <span class="case-num">02</span>
+          <div>
+            <div class="case-eyebrow">UX · Apple</div>
+            <div class="case-title">Sizing an invisible design organization</div>
+            <div class="case-summary">A qualitative research study that surfaced a large number of designers scattered across an enterprise technology org with no shared standards — and the frameworks that turned the finding into a new operating model.</div>
           </div>
-        </div>
-        <div class="case-body hidden pb-12 pl-0 md:pl-24">
-          <figure>
-            <div class="bg-warm border border-border-warm rounded-lg h-[260px] flex items-center justify-center overflow-hidden mb-10">
-              <span class="text-[13px] text-ink/30 px-6 text-center">[ Add image: Heat map of resources by organization ]</span>
+          <span class="case-toggle-btn" aria-hidden="true">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          </span>
+        </button>
+        <div class="case-expand">
+          <div class="case-body-inner">
+            <div class="case-image-group">
+              <div class="case-image-wrap blur">
+                <img src="images/heat_map.png" alt="Heat map showing design practitioner distribution across the organization">
+              </div>
+              <p class="case-caption">Heat map of resources by organization</p>
             </div>
-            <figcaption class="text-xs text-ink/40 border-t border-border-warm pt-2.5 mt-2">Heat map of resources by organization</figcaption>
-          </figure>
-          <div class="grid md:grid-cols-2 gap-10 mt-10 mb-10">
-            <div>
-              <p class="font-display font-bold text-[1.05rem] text-ink mb-3">The Problem</p>
-              <p class="text-[15px] leading-[1.7] text-ink/65">Inside a large internal-technology organization, design existed — but nobody could say how much, where, or to what standard. No common role definitions, no shared leveling, no consistent way to tell whether a team had dedicated design support at all. As the org pushed toward a product-driven model and AI began reshaping what design work looked like, that invisibility became a real risk: you can't invest in, staff, or defend a practice you can't see.</p>
-            </div>
-            <div>
-              <p class="font-display font-bold text-[1.05rem] text-ink mb-3">My Approach</p>
-              <p class="text-[15px] leading-[1.7] text-ink/65">Gathered existing org data then conducted 15 in-depth cross-functional interviews across teams with embedded designers, project-based support, and no design at all — plus engineers, product managers, and business stakeholders.</p>
-            </div>
-          </div>
-          <div class="mb-10">
-            <p class="font-display font-bold text-[1.05rem] text-ink mb-3">Frameworks That Outlived the Report</p>
-            <ul class="space-y-3">
-              <li class="flex gap-3 text-[15px] leading-[1.65] text-ink/65"><span class="text-brand shrink-0 mt-0.5">→</span>Engagement model 2×2: Guide / Consult / Partner / Join — gave the org shared vocabulary for how much design investment a team actually needed, and why "one size fits all" wasn't working</li>
-              <li class="flex gap-3 text-[15px] leading-[1.65] text-ink/65"><span class="text-brand shrink-0 mt-0.5">→</span>Outputs vs. outcomes 2×2: gave leadership a fast way to diagnose why some teams got dramatically more value from the same design capacity</li>
-              <li class="flex gap-3 text-[15px] leading-[1.65] text-ink/65"><span class="text-brand shrink-0 mt-0.5">→</span>Both frameworks became the vocabulary for staffing conversations well after the 90 days ended</li>
-            </ul>
-          </div>
-          <div class="bg-warm rounded-lg px-9 py-8 mb-10">
-            <p class="font-display font-bold text-[1.05rem] text-ink mb-2.5">Impact</p>
-            <p class="font-serif italic text-[1.2rem] leading-[1.65] text-ink/75">"The relationship with design is the best it's ever been." — an engineering leader, describing the shift after design's value became visible and legible for the first time.</p>
-          </div>
-          <div class="grid md:grid-cols-3 gap-8">
-            <div>
-              <p class="font-display font-bold text-[1.1rem] text-brand leading-none mb-2">Underreported</p>
-              <p class="text-[13px] text-ink/60 leading-tight">design org size — far more practitioners than leadership assumed, and mostly uncoordinated</p>
-            </div>
-            <div>
-              <p class="font-display font-bold text-[1.1rem] text-brand leading-none mb-2">Fragmented</p>
-              <p class="text-[13px] text-ink/60 leading-tight">design capacity scattered across adjacent orgs with no shared standards or visibility</p>
-            </div>
-            <div>
-              <p class="font-display font-bold text-[1.1rem] text-brand leading-none mb-2">Flagged risk</p>
-              <p class="text-[13px] text-ink/60 leading-tight">contractor dependency identified as an unquantified cost &amp; continuity concern</p>
+            <div class="case-content">
+              <div class="case-body-grid">
+                <div class="case-col">
+                  <div>
+                    <p class="case-block-label">The Problem</p>
+                    <p class="case-block-text">Inside a large internal-technology organization, design existed — but nobody could say how much, where, or to what standard. No common role definitions, no shared leveling, no consistent way to tell whether a team had dedicated design support at all. As the org pushed toward a product-driven model and AI began reshaping what design work looked like, that invisibility became a real risk: you can't invest in, staff, or defend a practice you can't see.</p>
+                  </div>
+                  <div>
+                    <p class="case-block-label">My Approach</p>
+                    <p class="case-block-text">Gathered existing org data then conducted 15 in-depth cross-functional interviews across teams with embedded designers, project-based support, and no design at all — plus engineers, product managers, and business stakeholders.</p>
+                  </div>
+                </div>
+                <div class="case-col">
+                  <div>
+                    <p class="case-block-label">Frameworks That Outlived the Report</p>
+                    <ul class="case-arrow-list">
+                      <li>Engagement model 2×2: Guide / Consult / Partner / Join — gave the org shared vocabulary for how much design investment a team actually needed, and why "one size fits all" wasn't working</li>
+                      <li>Outputs vs. outcomes 2×2: gave leadership a fast way to diagnose why some teams got dramatically more value from the same design capacity</li>
+                      <li>Both frameworks became the vocabulary for staffing conversations well after the 90 days ended</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p class="case-block-label">Impact</p>
+                    <p class="case-insight">"The relationship with design is the best it's ever been." — an engineering leader, describing the shift after design's value became visible and legible for the first time.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="outcomes-grid">
+                <div class="outcome-tile"><div class="outcome-number">Underreported</div><div class="outcome-label">design org size — far more practitioners than leadership assumed, and mostly uncoordinated</div></div>
+                <div class="outcome-tile"><div class="outcome-number">Fragmented</div><div class="outcome-label">design capacity scattered across adjacent orgs with no shared standards or visibility</div></div>
+                <div class="outcome-tile"><div class="outcome-number">Flagged risk</div><div class="outcome-label">contractor dependency identified as an unquantified cost &amp; continuity concern</div></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Case 03 -->
-      <div class="case-study border-t border-border-warm">
-        <div class="flex flex-col md:flex-row gap-4 md:gap-10 py-12">
-          <div class="font-display font-black text-4xl leading-none text-brand/22 shrink-0 w-auto md:w-14 pt-1">03</div>
-          <div class="flex-1 min-w-0">
-            <p class="text-[11px] font-semibold tracking-[0.18em] uppercase text-brand mb-2.5">Brand &amp; Product Strategy · Financial Engines</p>
-            <h3 class="font-display font-bold text-[clamp(1.3rem,2.2vw,1.65rem)] leading-tight text-ink mb-3">From design as a service to strategic partner</h3>
-            <p class="text-[15px] text-ink/60 leading-[1.65] max-w-[640px] mb-5">Design research uncovered an underserved customer segment, reshaping company strategy, driving a corporate acquisition, and leading a full brand relaunch across 125 physical advisor center locations nationwide.</p>
-            <button class="expand-btn text-[13.5px] font-semibold text-brand flex items-center gap-2 hover:opacity-65 transition-opacity" aria-expanded="false">
-              <span class="btn-label">Read case study</span>
-              <span class="btn-arrow">↓</span>
-            </button>
-          </div>
-        </div>
-        <div class="case-body hidden pb-12 pl-0 md:pl-24">
-          <div class="grid grid-cols-2 gap-4 mb-10">
-            <div class="bg-warm border border-border-warm rounded-lg h-[180px] flex items-center justify-center overflow-hidden">
-              <span class="text-[13px] text-ink/30 px-6 text-center">[ Brand collateral — business cards, letterhead, notebook ]</span>
-            </div>
-            <div class="bg-warm border border-border-warm rounded-lg h-[180px] flex items-center justify-center overflow-hidden">
-              <span class="text-[13px] text-ink/30 px-6 text-center">[ Financial Engines brand guidelines ]</span>
-            </div>
-            <div class="bg-warm border border-border-warm rounded-lg h-[180px] flex items-center justify-center overflow-hidden">
-              <span class="text-[13px] text-ink/30 px-6 text-center">[ Personal advisor web experience ]</span>
-            </div>
-            <div class="bg-warm border border-border-warm rounded-lg h-[180px] flex items-center justify-center overflow-hidden">
-              <span class="text-[13px] text-ink/30 px-6 text-center">[ In-home research artifact ]</span>
-            </div>
-          </div>
-          <div class="grid md:grid-cols-2 gap-10 mb-10">
-            <div>
-              <p class="font-display font-bold text-[1.05rem] text-ink mb-3">The Problem</p>
-              <p class="text-[15px] leading-[1.7] text-ink/65">When I joined Financial Engines as head of brand, the team was well-regarded for craft but treated as a service group — executing what the business had already decided, not shaping what it decided. Growth had stalled. The company had built success on automated portfolio management, but customers increasingly wanted a personal connection alongside a financial plan, not just an algorithm.</p>
-            </div>
-            <div>
-              <p class="font-display font-bold text-[1.05rem] text-ink mb-3">My Role</p>
-              <p class="text-[15px] leading-[1.7] text-ink/65">Senior Director, Brand — led a 6–10 person design &amp; content team. Owned research, brand strategy, product design, culture change programming, and the full corporate rebrand rollout across digital, print, and 125 physical advisor centers acquired in a corporate deal.</p>
-            </div>
-          </div>
-          <div class="mb-10">
-            <p class="font-display font-bold text-[1.05rem] text-ink mb-3">What I Did</p>
-            <ul class="space-y-3">
-              <li class="flex gap-3 text-[15px] leading-[1.65] text-ink/65"><span class="text-brand shrink-0 mt-0.5">→</span>Led in-home design research — sat with people in their living rooms and kitchens to understand how they actually thought about their financial lives</li>
-              <li class="flex gap-3 text-[15px] leading-[1.65] text-ink/65"><span class="text-brand shrink-0 mt-0.5">→</span>Paired qualitative work with a large-scale quantitative segmentation survey to define new positioning</li>
-              <li class="flex gap-3 text-[15px] leading-[1.65] text-ink/65"><span class="text-brand shrink-0 mt-0.5">→</span>Designed the full end-to-end customer experience for a new personal financial-advisor offer</li>
-              <li class="flex gap-3 text-[15px] leading-[1.65] text-ink/65"><span class="text-brand shrink-0 mt-0.5">→</span>Treated internal culture change as a design problem: launched a recurring speaker series (the Speakeasy), brought real customers to the company all-hands, and designed large-scale office installations</li>
-              <li class="flex gap-3 text-[15px] leading-[1.65] text-ink/65"><span class="text-brand shrink-0 mt-0.5">→</span>Managed the full rebrand rollout across 125 acquired advisor centers on a budget-constrained timeline</li>
-            </ul>
-          </div>
-          <div class="bg-warm rounded-lg px-9 py-8 mb-10">
-            <p class="font-display font-bold text-[1.05rem] text-ink mb-2.5">Defining Insight</p>
-            <p class="font-serif italic text-[1.2rem] leading-[1.65] text-ink/75">What made us distinctive wasn't what we did — competitors could say the same things. What made us distinctive was who we served and how we created value for them.</p>
-          </div>
-          <div class="grid md:grid-cols-3 gap-8">
-            <div>
-              <p class="font-display font-black text-[1.85rem] text-brand leading-none mb-2">125</p>
-              <p class="text-[13px] text-ink/60 leading-tight">acquired advisor centers renamed &amp; redesigned nationwide, on schedule</p>
-            </div>
-            <div>
-              <p class="font-display font-black text-[1.85rem] text-brand leading-none mb-2">30%+</p>
-              <p class="text-[13px] text-ink/60 leading-tight">close rate for events built around the new personal advisor offer</p>
-            </div>
-            <div>
-              <p class="font-display font-black text-[1.85rem] text-brand leading-none mb-2">1 new</p>
-              <p class="text-[13px] text-ink/60 leading-tight">direct-to-consumer revenue line launched via the acquisition &amp; advisor offer rollout</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="border-t border-border-warm pt-10">
-        <p class="font-serif italic text-[1.1rem] text-ink/40">I'm happy to share my full portfolio in person.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== BACKGROUND ====== -->
-  <section id="background" class="bg-warm py-24">
-    <div class="max-w-[1280px] mx-auto px-6 md:px-10">
-      <span class="block text-[11px] font-semibold tracking-[0.18em] uppercase text-brand mb-7">Background</span>
-      <h2 class="font-display font-bold text-[clamp(2rem,3.5vw,2.75rem)] leading-[1.08] tracking-[-0.025em] text-ink mb-16">A career built on<br>building practices.</h2>
-
-      <div class="mb-20">
-        <div class="flex flex-col md:flex-row justify-between items-start gap-1 md:gap-6 border-t border-border-warm py-7">
+      <div class="reveal case-card" data-case>
+        <button class="case-header" type="button">
+          <span class="case-num">03</span>
           <div>
-            <p class="text-[15px] font-semibold text-ink mb-1">Apple — Manager, Product Management &amp; UX Program Lead</p>
-            <p class="text-[13.5px] text-ink/60 leading-snug">Voice of the Customer program, design org strategy, enterprise technology</p>
+            <div class="case-eyebrow">Brand &amp; Product Strategy · Financial Engines</div>
+            <div class="case-title">From design as a service to strategic partner</div>
+            <div class="case-summary">Design research uncovered an underserved customer segment, reshaping company strategy, driving a corporate acquisition, and leading a full brand relaunch across 125 physical advisor center locations nationwide.</div>
           </div>
-          <p class="text-[13px] text-ink/30 shrink-0 text-left md:text-right whitespace-nowrap">Oct 2022 – Present</p>
-        </div>
-        <div class="flex flex-col md:flex-row justify-between items-start gap-1 md:gap-6 border-t border-border-warm py-7">
-          <div>
-            <p class="text-[15px] font-semibold text-ink mb-1">Teladoc / Livongo — VP, Product Design &amp; User Research</p>
-            <p class="text-[13.5px] text-ink/60 leading-snug">Scaled design &amp; research org from 2 to 50+ people · Healthcare &amp; digital health</p>
+          <span class="case-toggle-btn" aria-hidden="true">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          </span>
+        </button>
+        <div class="case-expand">
+          <div class="case-body-inner">
+            <div class="case-image-group">
+              <div class="case-image-hero">
+                <img src="images/fe_letterhead.jpg" alt="Brand collateral — business cards, letterhead, and notebook with the new Financial Engines identity">
+              </div>
+              <div class="case-image-2col">
+                <div><img src="images/fe_guide.jpg" alt="Financial Engines brand guidelines — the complete brand system delivered as a comprehensive document"></div>
+                <div><img src="images/fe_web.jpg" alt="Financial Engines personal advisor web experience — the end-to-end customer journey from awareness to appointment"></div>
+              </div>
+              <div class="case-image-single">
+                <div><img src="images/fe_beast.jpg" alt="In-home research artifact — a customer's handwritten note tracking investment accounts across multiple providers"></div>
+              </div>
+            </div>
+            <div class="case-content">
+              <div class="case-body-grid">
+                <div class="case-col">
+                  <div>
+                    <p class="case-block-label">The Problem</p>
+                    <p class="case-block-text">When I joined Financial Engines as head of brand, the team was well-regarded for craft but treated as a service group — executing what the business had already decided, not shaping what it decided. Growth had stalled. The company had built success on automated portfolio management, but customers increasingly wanted a personal connection alongside a financial plan, not just an algorithm.</p>
+                  </div>
+                  <div>
+                    <p class="case-block-label">My Role</p>
+                    <p class="case-block-text">Senior Director, Brand — led a 6–10 person design &amp; content team. Owned research, brand strategy, product design, culture change programming, and the full corporate rebrand rollout across digital, print, and 125 physical advisor centers acquired in a corporate deal.</p>
+                  </div>
+                </div>
+                <div class="case-col">
+                  <div>
+                    <p class="case-block-label">What I Did</p>
+                    <ul class="case-arrow-list">
+                      <li>Led in-home design research — sat with people in their living rooms and kitchens to understand how they actually thought about their financial lives</li>
+                      <li>Paired qualitative work with a large-scale quantitative segmentation survey to define new positioning</li>
+                      <li>Designed the full end-to-end customer experience for a new personal financial-advisor offer</li>
+                      <li>Treated internal culture change as a design problem: launched a recurring speaker series (the Speakeasy), brought real customers to the company all-hands, and designed large-scale office installations</li>
+                      <li>Managed the full rebrand rollout across 125 acquired advisor centers on a budget-constrained timeline</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p class="case-block-label">Defining Insight</p>
+                    <p class="case-insight">What made us distinctive wasn't what we did — competitors could say the same things. What made us distinctive was who we served and how we created value for them.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="outcomes-grid">
+                <div class="outcome-tile"><div class="outcome-number">125</div><div class="outcome-label">acquired advisor centers renamed &amp; redesigned nationwide, on schedule</div></div>
+                <div class="outcome-tile"><div class="outcome-number">30%+</div><div class="outcome-label">close rate for events built around the new personal advisor offer</div></div>
+                <div class="outcome-tile"><div class="outcome-number">1 new</div><div class="outcome-label">direct-to-consumer revenue line launched via the acquisition &amp; advisor offer rollout</div></div>
+              </div>
+            </div>
           </div>
-          <p class="text-[13px] text-ink/30 shrink-0 text-left md:text-right whitespace-nowrap">Apr 2019 – Sep 2022</p>
-        </div>
-        <div class="flex flex-col md:flex-row justify-between items-start gap-1 md:gap-6 border-t border-border-warm py-7">
-          <div>
-            <p class="text-[15px] font-semibold text-ink mb-1">Consulting — Facebook, LinkedIn, Intuit</p>
-            <p class="text-[13.5px] text-ink/60 leading-snug">UX research, product voice &amp; content strategy, design leadership, A/B testing</p>
-          </div>
-          <p class="text-[13px] text-ink/30 shrink-0 text-left md:text-right whitespace-nowrap">Jan 2009 – Mar 2019</p>
-        </div>
-        <div class="flex flex-col md:flex-row justify-between items-start gap-1 md:gap-6 border-t border-border-warm py-7">
-          <div>
-            <p class="text-[15px] font-semibold text-ink mb-1">Financial Engines — Senior Director, Brand</p>
-            <p class="text-[13.5px] text-ink/60 leading-snug">Customer research, new advisor offer, corporate rebrand, acquisition integration</p>
-          </div>
-          <p class="text-[13px] text-ink/30 shrink-0 text-left md:text-right whitespace-nowrap">Jun 2012 – Dec 2016</p>
-        </div>
-        <div class="flex flex-col md:flex-row justify-between items-start gap-1 md:gap-6 border-t border-border-warm py-7">
-          <div>
-            <p class="text-[15px] font-semibold text-ink mb-1">eBay — Principal, User Experience Design</p>
-            <p class="text-[13.5px] text-ink/60 leading-snug">Two major site redesigns, design system, content strategy practice, moved org off waterfall</p>
-          </div>
-          <p class="text-[13px] text-ink/30 shrink-0 text-left md:text-right whitespace-nowrap">Sep 2006 – Dec 2008</p>
-        </div>
-        <div class="flex flex-col md:flex-row justify-between items-start gap-1 md:gap-6 border-t border-border-warm py-7">
-          <div>
-            <p class="text-[15px] font-semibold text-ink mb-1">Yahoo! Travel — Product Manager</p>
-            <p class="text-[13.5px] text-ink/60 leading-snug">Managed licensing relationships with media partners and travel publishers; transitioned product content from 3rd party to user-generated</p>
-          </div>
-          <p class="text-[13px] text-ink/30 shrink-0 text-left md:text-right whitespace-nowrap">Sep 2001 – Apr 2005</p>
-        </div>
-        <div class="flex flex-col md:flex-row justify-between items-start gap-1 md:gap-6 border-t border-border-warm py-7">
-          <div>
-            <p class="text-[15px] font-semibold text-ink mb-1">Scient Inc — Director, Customer Experience</p>
-            <p class="text-[13.5px] text-ink/60 leading-snug">Led global content strategy community of 40–70 people; facilitated knowledge sharing, staffing, and business development</p>
-          </div>
-          <p class="text-[13px] text-ink/30 shrink-0 text-left md:text-right whitespace-nowrap">Aug 1999 – Apr 2001</p>
-        </div>
-        <div class="flex flex-col md:flex-row justify-between items-start gap-1 md:gap-6 border-t border-b border-border-warm py-7">
-          <div>
-            <p class="text-[15px] font-semibold text-ink mb-1">Travelocity — Design Lead</p>
-            <p class="text-[13.5px] text-ink/60 leading-snug">Managed the design team that helped launch the first major online travel site</p>
-          </div>
-          <p class="text-[13px] text-ink/30 shrink-0 text-left md:text-right whitespace-nowrap">1995 – 1997</p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-10">
-        <div>
-          <h3 class="font-display font-bold text-[0.95rem] text-ink mb-4">Leadership</h3>
-          <ul class="space-y-1">
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Design org scaling</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Hiring &amp; team building</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Executive influence</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Cross-functional partnership</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Culture change</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Stakeholder management</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-display font-bold text-[0.95rem] text-ink mb-4">Research &amp; Strategy</h3>
-          <ul class="space-y-1">
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">User research</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Qualitative methods</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Quantitative methods</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">VoC programs</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">CSAT &amp; satisfaction measurement</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Customer segmentation</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Journey mapping</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">A/B testing</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-display font-bold text-[0.95rem] text-ink mb-4">Design &amp; Craft</h3>
-          <ul class="space-y-1">
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Product design</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Brand strategy</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Design systems</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Content strategy</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Human-centered design</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Service design</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Experience principles</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-display font-bold text-[0.95rem] text-ink mb-4">Industries</h3>
-          <ul class="space-y-1">
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Healthcare &amp; digital health</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Enterprise technology</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Fintech</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">E-commerce</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Social media</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Travel</li>
-            <li class="text-[13.5px] text-ink/60 leading-snug py-1">Collaboration &amp; Productivity</li>
-          </ul>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- ====== CONTACT ====== -->
-  <section id="contact" class="py-24" style="background: linear-gradient(138deg, #C93B16 0%, #D4431C 38%, #E05A6A 100%);">
-    <div class="max-w-[1280px] mx-auto px-6 md:px-10">
-      <p class="text-[11px] font-semibold tracking-[0.22em] uppercase text-white/55 mb-7">Get in touch</p>
-      <h2 class="font-display font-bold text-[clamp(2rem,3.5vw,2.75rem)] leading-[1.08] tracking-[-0.025em] text-white mb-7">Let's talk.</h2>
-      <p class="text-[1.05rem] leading-[1.65] text-white/70 max-w-[480px] mb-12">I'm interested in senior design and research leadership roles where I can build high-performing teams, shape product strategy, and bring rigorous human-centered thinking to complex problems.</p>
-      <div class="flex flex-col gap-4">
-        <a href="mailto:annelisebishop@gmail.com" class="text-base font-medium text-white hover:opacity-65 transition-opacity w-fit">annelisebishop@gmail.com</a>
-        <a href="https://linkedin.com/in/annbishop" target="_blank" rel="noopener" class="text-base font-medium text-white hover:opacity-65 transition-opacity w-fit">linkedin.com/in/annbishop</a>
-        <a href="tel:6503800599" class="text-base font-medium text-white hover:opacity-65 transition-opacity w-fit">650.380.0599</a>
+    <p class="work-outro reveal">I'm happy to share my full portfolio in person.</p>
+  </div>
+</section>
+
+<!-- ====== BACKGROUND ====== -->
+<section id="background" class="background-section">
+  <div class="background-inner">
+    <div class="reveal background-heading-wrap">
+      <p class="section-eyebrow">Background</p>
+      <h2 class="section-heading">A career built on <br>building practices.</h2>
+    </div>
+    <div class="bg-grid">
+      <div>
+        <div class="reveal timeline-item">
+          <div class="timeline-line"></div>
+          <div class="timeline-dot"></div>
+          <div>
+            <strong class="timeline-role">Apple — Manager, Product Management &amp; UX Program Lead</strong>
+            <span class="timeline-date">Oct 2022 – Present</span>
+            <span class="timeline-desc">Voice of the Customer program, design org strategy, enterprise technology</span>
+          </div>
+        </div>
+        <div class="reveal timeline-item">
+          <div class="timeline-line"></div>
+          <div class="timeline-dot"></div>
+          <div>
+            <strong class="timeline-role">Teladoc / Livongo — VP, Product Design &amp; User Research</strong>
+            <span class="timeline-date">Apr 2019 – Sep 2022</span>
+            <span class="timeline-desc">Scaled design &amp; research org from 2 to 50+ people · Healthcare &amp; digital health</span>
+          </div>
+        </div>
+        <div class="reveal timeline-item">
+          <div class="timeline-line"></div>
+          <div class="timeline-dot"></div>
+          <div>
+            <strong class="timeline-role">Consulting — Facebook, LinkedIn, Intuit</strong>
+            <span class="timeline-date">Jan 2009 – Mar 2019</span>
+            <span class="timeline-desc">UX research, product voice &amp; content strategy, design leadership, A/B testing</span>
+          </div>
+        </div>
+        <div class="reveal timeline-item">
+          <div class="timeline-line"></div>
+          <div class="timeline-dot"></div>
+          <div>
+            <strong class="timeline-role">Financial Engines — Senior Director, Brand</strong>
+            <span class="timeline-date">Jun 2012 – Dec 2016</span>
+            <span class="timeline-desc">Customer research, new advisor offer, corporate rebrand, acquisition integration</span>
+          </div>
+        </div>
+        <div class="reveal timeline-item">
+          <div class="timeline-line"></div>
+          <div class="timeline-dot"></div>
+          <div>
+            <strong class="timeline-role">eBay — Principal, User Experience Design</strong>
+            <span class="timeline-date">Sep 2006 – Dec 2008</span>
+            <span class="timeline-desc">Two major site redesigns, design system, content strategy practice, moved org off waterfall</span>
+          </div>
+        </div>
+        <div class="reveal timeline-item">
+          <div class="timeline-line"></div>
+          <div class="timeline-dot"></div>
+          <div>
+            <strong class="timeline-role">Yahoo! Travel — Product Manager</strong>
+            <span class="timeline-date">Sep 2001 – Apr 2005</span>
+            <span class="timeline-desc">Managed licensing relationships with media partners and travel publishers; transitioned product content from 3rd party to user-generated</span>
+          </div>
+        </div>
+        <div class="reveal timeline-item">
+          <div class="timeline-line"></div>
+          <div class="timeline-dot"></div>
+          <div>
+            <strong class="timeline-role">Scient Inc — Director, Customer Experience</strong>
+            <span class="timeline-date">Aug 1999 – Apr 2001</span>
+            <span class="timeline-desc">Led global content strategy community of 40–70 people; facilitated knowledge sharing, staffing, and business development</span>
+          </div>
+        </div>
+        <div class="reveal timeline-item">
+          <div class="timeline-line"></div>
+          <div class="timeline-dot"></div>
+          <div>
+            <strong class="timeline-role">Travelocity — Design Lead</strong>
+            <span class="timeline-date">1995 – 1997</span>
+            <span class="timeline-desc">Managed the design team that helped launch the first major online travel site</span>
+          </div>
+        </div>
+      </div>
+      <div class="skills-col">
+        <div class="reveal skill-group">
+          <h4>Leadership</h4>
+          <div class="skill-pills">
+            <span>Design org scaling</span><span>Hiring &amp; team building</span><span>Executive influence</span>
+            <span>Cross-functional partnership</span><span>Culture change</span><span>Stakeholder management</span>
+          </div>
+        </div>
+        <div class="reveal skill-group">
+          <h4>Research &amp; Strategy</h4>
+          <div class="skill-pills">
+            <span>User research</span><span>Qualitative methods</span><span>Quantitative methods</span>
+            <span>VoC programs</span><span>CSAT &amp; satisfaction measurement</span><span>Customer segmentation</span>
+            <span>Journey mapping</span><span>A/B testing</span>
+          </div>
+        </div>
+        <div class="reveal skill-group">
+          <h4>Design &amp; Craft</h4>
+          <div class="skill-pills">
+            <span>Product design</span><span>Brand strategy</span><span>Design systems</span>
+            <span>Content strategy</span><span>Human-centered design</span><span>Service design</span><span>Experience principles</span>
+          </div>
+        </div>
+        <div class="reveal skill-group">
+          <h4>Industries</h4>
+          <div class="skill-pills">
+            <span>Healthcare &amp; digital health</span><span>Enterprise technology</span><span>Fintech</span>
+            <span>E-commerce</span><span>Social media</span><span>Travel</span><span>Collaboration &amp; Productivity</span>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ====== FOOTER ====== -->
-  <footer class="bg-cream border-t border-border-warm py-5">
-    <div class="max-w-[1280px] mx-auto px-6 md:px-10">
-      <p class="text-[12.5px] text-ink/30">Ann Bishop · Product, Design &amp; Research Leadership</p>
+<!-- ====== CONTACT ====== -->
+<section id="contact" class="contact-section">
+  <div class="contact-inner reveal">
+    <p class="contact-eyebrow">Get in touch</p>
+    <h2 class="contact-heading">Let's talk.</h2>
+    <p class="contact-blurb">I'm interested in senior design and research leadership roles where I can build high-performing teams, shape product strategy, and bring rigorous human-centered thinking to complex problems.</p>
+    <div class="contact-btn-row">
+      <a href="mailto:annelisebishop@gmail.com" class="contact-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        annelisebishop@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/annbishop" target="_blank" rel="noopener noreferrer" class="contact-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        linkedin.com/in/annbishop
+      </a>
+      <a href="tel:6503800599" class="contact-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        650.380.0599
+      </a>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    // Nav: transparent over hero, cream when scrolled
-    const nav = document.getElementById('main-nav');
-    const navLogo = nav.querySelector('.nav-logo');
-    const navLinks = nav.querySelectorAll('.nav-links a');
-    const mobileBtn = document.getElementById('mobile-menu-btn');
+<!-- ====== FOOTER ====== -->
+<footer class="site-footer">Ann Bishop · Product, Design &amp; Research Leadership</footer>
 
-    function updateNav() {
-      if (window.scrollY > window.innerHeight * 0.75) {
-        nav.classList.add('bg-cream', 'border-border-warm');
-        navLogo.classList.remove('text-white');
-        navLogo.classList.add('text-brand');
-        navLinks.forEach(a => { a.classList.remove('text-white/82'); a.classList.add('text-ink'); });
-        mobileBtn.classList.remove('text-white/82');
-        mobileBtn.classList.add('text-ink');
-      } else {
-        nav.classList.remove('bg-cream', 'border-border-warm');
-        navLogo.classList.add('text-white');
-        navLogo.classList.remove('text-brand');
-        navLinks.forEach(a => { a.classList.add('text-white/82'); a.classList.remove('text-ink'); });
-        mobileBtn.classList.add('text-white/82');
-        mobileBtn.classList.remove('text-ink');
+<script>
+  // Nav: transparent/white over hero, cream+blur once scrolled past it
+  const nav = document.querySelector('.main-nav');
+  function updateNav() {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+  updateNav();
+  window.addEventListener('scroll', updateNav, { passive: true });
+
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.style.display = 'none'));
+
+  // Case study expand/collapse
+  document.querySelectorAll('[data-case]').forEach(card => {
+    card.querySelector('.case-header').addEventListener('click', () => {
+      card.classList.toggle('open');
+    });
+  });
+
+  // Scroll-reveal via IntersectionObserver, staggered within groups
+  const groups = [
+    document.querySelectorAll('.client-badge'),
+  ];
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
       }
-    }
-    updateNav();
-    window.addEventListener('scroll', updateNav, { passive: true });
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    // Mobile menu
-    mobileBtn.addEventListener('click', () => {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
-    });
-    document.querySelectorAll('#mobile-menu a').forEach(a => {
-      a.addEventListener('click', () => {
-        document.getElementById('mobile-menu').classList.add('hidden');
-      });
-    });
-
-    // Expandable case studies
-    document.querySelectorAll('.expand-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const body  = btn.closest('.case-study').querySelector('.case-body');
-        const label = btn.querySelector('.btn-label');
-        const arrow = btn.querySelector('.btn-arrow');
-        const isOpen = !body.classList.contains('hidden');
-        body.classList.toggle('hidden');
-        label.textContent = isOpen ? 'Read case study' : 'Close case study';
-        arrow.textContent = isOpen ? '↓' : '↑';
-        btn.setAttribute('aria-expanded', String(!isOpen));
-        if (!isOpen) {
-          setTimeout(() => btn.closest('.case-study').scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
-        }
-      });
-    });
-  </script>
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    // stagger children within the same parent container slightly
+    const siblingIndex = Array.from(el.parentElement.children).indexOf(el);
+    el.style.transitionDelay = Math.min(siblingIndex * 45, 300) + 'ms';
+    io.observe(el);
+  });
+</script>
 
 </body>
 </html>
