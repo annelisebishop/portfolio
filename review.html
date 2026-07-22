@@ -36,30 +36,21 @@
   font-style: italic;
   font-display: swap;
 }
-@font-face {
-  font-family: 'EB Garamond';
-  src: url('fonts/ebgaramond-italic-var.woff2') format('woff2');
-  font-weight: 400 500;
-  font-style: italic;
-  font-display: swap;
-}
-
 /* ============ Tokens ============ */
 :root {
-  --brand:       #D4431C;
-  --brand-dark:  #C93B16;
-  --brand-light: #E05A6A;
-  --gradient:    linear-gradient(138deg, #C93B16 0%, #D4431C 38%, #E05A6A 100%);
-  --cream:       #FFFAF7;
-  --warm:        #F5EFE9;
-  --border:      #E5DAD2;
-  --ink:         #1E1E1E;
-  --gray-body:   #444444;
-  --gray-label:  #777777;
-  --gray-quote:  #555555;
+  --brand:       #B8451F;
+  --brand-dark:  #8F3714;
+  --brand-light: #D9A15C;
+  --gradient:    linear-gradient(155deg, #191510 0%, #241E17 62%, #2E2519 100%);
+  --cream:       #FBF8F4;
+  --warm:        #F1EAE1;
+  --border:      #E2D8CC;
+  --ink:         #191510;
+  --gray-body:   #43403B;
+  --gray-label:  #7A756D;
+  --gray-quote:  #57524A;
   --font-sans:     'Instrument Sans', sans-serif;
   --font-display:  'Fraunces', serif;
-  --font-serif:    'EB Garamond', Georgia, serif;
 }
 
 /* ============ Reset / base ============ */
@@ -130,10 +121,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 
 /* ============ HERO ============ */
 .hero-section {
-  min-height: 100vh;
+  min-height: 92vh;
   background: var(--gradient);
-  display: flex; align-items: flex-start;
-  padding: 140px 80px 84px;
+  display: flex; align-items: center;
+  padding: 120px 80px 84px;
   position: relative; overflow: hidden;
 }
 .hero-glow {
@@ -171,7 +162,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 /* ============ shared section bits ============ */
 .section-eyebrow {
   font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--brand); margin-bottom: 14px;
+  color: var(--gray-label); margin-bottom: 14px;
 }
 .section-heading {
   font-family: var(--font-display); font-size: clamp(1.9rem, 3vw, 2.75rem); font-weight: 700;
@@ -203,7 +194,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 .philosophy-section { padding: 84px 80px; background: var(--warm); }
 .philosophy-inner { max-width: 740px; margin: 0 auto; text-align: center; }
 .philosophy-quote {
-  font-family: var(--font-serif); font-style: italic; font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+  font-family: var(--font-display); font-style: italic; font-size: clamp(1.45rem, 2.4vw, 2.05rem);
   line-height: 1.58; color: var(--ink); font-weight: 400;
   border-left: 4px solid var(--brand); padding-left: clamp(1.2rem, 2vw, 2rem); text-align: left;
 }
@@ -218,11 +209,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   background: white; box-shadow: 0 1px 4px rgba(0,0,0,0.04);
 }
 .case-header {
-  display: grid; grid-template-columns: 56px 1fr 44px; gap: 20px; align-items: center;
+  display: grid; grid-template-columns: 1fr 44px; gap: 20px; align-items: center;
   padding: 32px 36px; cursor: pointer; user-select: none; width: 100%; text-align: left;
 }
-.case-num { font-family: var(--font-display); font-size: 2.6rem; font-weight: 900; color: var(--border); line-height: 1; }
-.case-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--brand); margin-bottom: 9px; }
+.case-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gray-label); margin-bottom: 9px; }
 .case-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--ink); margin-bottom: 9px; line-height: 1.22; }
 .case-summary { font-size: 0.9rem; color: var(--gray-label); line-height: 1.6; }
 .case-toggle-btn {
@@ -235,20 +225,18 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 .case-card.open .case-expand { max-height: 3200px; }
 .case-body-inner { padding: 0 0 48px; border-top: 1px solid var(--border); }
 
-.case-image-wrap { width: 100%; max-height: 380px; overflow: hidden; background: var(--warm); position: relative; margin-bottom: 40px; border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.case-image-wrap { width: 100%; max-height: 380px; overflow: hidden; background: var(--warm); position: relative; margin-bottom: 40px; }
 .case-image-wrap img { width: 100%; height: auto; display: block; }
 .case-image-wrap.blur img { filter: blur(3px); }
 .case-caption { font-size: 0.75rem; color: var(--gray-label); font-style: italic; margin: 8px 0 0; padding-left: 2px; }
-.case-image-group { margin-bottom: 40px; padding: 0 36px; }
-.case-image-hero { width: 100%; max-height: 380px; overflow: hidden; background: var(--warm); margin-bottom: 16px; border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.case-image-group { margin-bottom: 40px; }
+.case-image-hero { width: 100%; max-height: 380px; overflow: hidden; background: var(--warm); margin-bottom: 4px; }
 .case-image-hero img { width: 100%; height: auto; display: block; }
-.case-image-2col { display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start; }
-.case-image-2col > div { flex: 1; background: var(--warm); overflow: hidden; border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
-.case-image-2col .case-image-col { display: flex; flex-direction: column; gap: 16px; background: none; border: none; box-shadow: none; padding: 0; }
-.case-image-2col .case-image-col > div { background: var(--warm); overflow: hidden; border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.case-image-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+.case-image-2col div { background: var(--warm); }
 .case-image-2col img { width: 100%; height: auto; display: block; }
 .case-image-single { display: grid; grid-template-columns: minmax(0, 480px); gap: 4px; justify-content: center; margin-top: 4px; }
-.case-image-single div { background: var(--warm); overflow: hidden; border: 1.5px solid var(--border); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.case-image-single div { background: var(--warm); }
 .case-image-single img { width: 100%; height: auto; display: block; }
 
 .case-content { padding: 0 36px; }
@@ -258,11 +246,16 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 .case-block-text { font-size: 0.93rem; color: var(--gray-body); line-height: 1.78; }
 .case-arrow-list { display: flex; flex-direction: column; gap: 9px; }
 .case-arrow-list li { font-size: 0.92rem; color: var(--gray-body); line-height: 1.65; padding-left: 22px; position: relative; }
-.case-arrow-list li::before { content: '→'; position: absolute; left: 0; color: var(--brand); font-size: 0.8rem; top: 2px; }
+.case-arrow-list li::before { content: '→'; position: absolute; left: 0; color: var(--gray-quote); font-size: 0.8rem; top: 2px; }
 .case-insight { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; line-height: 1.68; color: var(--gray-quote); }
 .outcomes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding-top: 28px; border-top: 1px solid var(--border); }
 .outcome-tile { padding: 22px 18px; background: var(--warm); border-radius: 10px; text-align: center; }
 .outcome-number { font-family: var(--font-display); font-size: 1.85rem; font-weight: 900; color: var(--brand); line-height: 1; margin-bottom: 9px; }
+.outcome-tile.finding { text-align: left; }
+.outcome-tile.finding .outcome-number {
+  font-family: var(--font-sans); font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.07em; color: var(--ink); margin-bottom: 8px;
+}
 .outcome-label { font-size: 0.76rem; color: var(--gray-label); line-height: 1.52; }
 .work-outro { margin-top: 48px; text-align: center; font-size: 1rem; color: var(--gray-label); font-style: italic; font-family: var(--font-display); }
 
@@ -276,7 +269,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 .timeline-item:last-child .timeline-line { display: none; }
 .timeline-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--brand); margin-top: 5px; flex-shrink: 0; }
 .timeline-role { display: block; font-size: 0.92rem; font-weight: 600; color: var(--ink); margin-bottom: 2px; line-height: 1.4; }
-.timeline-date { font-size: 0.8rem; color: var(--brand); font-weight: 500; display: block; margin-bottom: 2px; }
+.timeline-date { font-size: 0.8rem; color: var(--gray-label); font-weight: 500; display: block; margin-bottom: 2px; }
 .timeline-desc { font-size: 0.8rem; color: var(--gray-label); line-height: 1.52; display: block; }
 .skills-col { display: flex; flex-direction: column; gap: 28px; }
 .skill-group h4 {
@@ -332,8 +325,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   .case-body-grid { grid-template-columns: 1fr; gap: 28px; }
   .case-image-2col { grid-template-columns: 1fr; }
   .outcomes-grid { grid-template-columns: 1fr; }
-  .case-header { grid-template-columns: 30px 1fr 40px; gap: 14px; padding: 24px 20px; }
-  .case-num { font-size: 1.7rem; }
+  .case-header { grid-template-columns: 1fr 40px; padding: 24px 20px; }
   .case-content { padding: 0 20px; }
 }
 </style>
@@ -348,7 +340,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     <li><a href="#work" class="nav-link">Work</a></li>
     <li><a href="#background" class="nav-link">Background</a></li>
     <li><a href="#contact" class="nav-link">Contact</a></li>
-    <li><a href="/Ann-Bishop-Resume.pdf" download="Ann-Bishop-Resume.pdf" class="resume-link">Resume<span>↓</span></a></li>
+    <li><a href="/Ann_Bishop_Resume.pdf" download="Ann_Bishop_Resume.pdf" class="resume-link">Resume<span>↓</span></a></li>
   </ul>
   <button class="nav-mobile-btn" id="mobile-menu-btn" aria-label="Open menu">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -359,7 +351,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   <a href="#work">Work</a>
   <a href="#background">Background</a>
   <a href="#contact">Contact</a>
-  <a href="/Ann-Bishop-Resume.pdf" download="Ann-Bishop-Resume.pdf">Resume ↓</a>
+  <a href="/Ann_Bishop_Resume.pdf" download="Ann_Bishop_Resume.pdf">Resume ↓</a>
 </div>
 
 <!-- ====== HERO ====== -->
@@ -367,7 +359,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   <div class="hero-glow"></div>
   <div class="hero-fade-bottom"></div>
   <div class="hero-inner">
-    <p class="hero-eyebrow">Design &amp; Research Leadership</p>
+    <p class="hero-eyebrow">Product, Design &amp; Research Leadership</p>
     <h1 class="hero-name">Ann Bishop</h1>
     <p class="hero-sub">Building the teams and systems that turn what people need into what a product does next.</p>
     <a href="#work" class="hero-cta">View selected work
@@ -385,8 +377,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
         <h2 class="section-heading">Human-centered design, <br>from the ground up.</h2>
       </div>
       <div class="about-body">
-        <p>I'm a product design and user research leader who builds the teams and systems that turn customer truth into business results. That's meant launching Travelocity, one of the first online travel sites; establishing content as a design discipline at eBay; and scaling a 50-person design and research org at Livongo/Teladoc. At Apple, I've managed a team of enterprise product managers, taught a popular course on innovative thinking, and now lead an internal Voice of the Customer program I built from the ground up.</p>
-        <p>My path runs through in-house leadership at Apple, Teladoc, and eBay, and consulting engagements with Facebook, LinkedIn, and Intuit. The throughline: use rigorous research to find what's actually true about users and the business, then build the team and systems that make acting on it repeatable.</p>
+        <p>Thirty years in, I've led design, product, and user research at every scale — from launching Travelocity, one of the first online travel sites, to establishing content as a design practice at eBay, to building a 50-person design and research org at Livongo/Teladoc. At Apple, I managed a team of enterprise product managers and taught a popular innovative thinking course before building an internal Voice of the Customer program.</p>
+        <p>My path runs through in-house leadership at Apple, Teladoc, Ibotta, and eBay, and consulting engagements with Facebook, LinkedIn, and Intuit. The throughline at every stop: use rigorous research to find what's actually true about users and the business, then build the team and systems that makes acting on it repeatable.</p>
       </div>
     </div>
     <div class="reveal client-group">
@@ -429,11 +421,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
       <!-- Case 01 -->
       <div class="reveal case-card" data-case>
         <button class="case-header" type="button">
-          <span class="case-num">01</span>
           <div>
             <div class="case-eyebrow">UX · Apple</div>
             <div class="case-title">Building a Voice of the Customer program from zero</div>
-            <div class="case-summary">Established and scaled a company-wide feedback and satisfaction-measurement system with an AI-assisted signal pipeline covering dozens of internal products.</div>
+            <div class="case-summary">Designed and scaled a company-wide feedback and satisfaction-measurement system with an AI-assisted signal pipeline covering dozens of internal products.</div>
           </div>
           <span class="case-toggle-btn" aria-hidden="true">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
@@ -442,9 +433,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
         <div class="case-expand">
           <div class="case-body-inner">
             <div class="case-image-group">
-              <div class="case-image-wrap">
+              <div class="case-image-wrap blur">
                 <img src="images/example_dashboard.png" alt="CSAT dashboard — results for first party IS&T hero products">
               </div>
+              <p class="case-caption">Example dashboard from the Voice of the Customer program</p>
             </div>
             <div class="case-content">
               <div class="case-body-grid">
@@ -489,7 +481,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
       <!-- Case 02 -->
       <div class="reveal case-card" data-case>
         <button class="case-header" type="button">
-          <span class="case-num">02</span>
           <div>
             <div class="case-eyebrow">UX · Apple</div>
             <div class="case-title">Sizing an invisible design organization</div>
@@ -502,9 +493,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
         <div class="case-expand">
           <div class="case-body-inner">
             <div class="case-image-group">
-              <div class="case-image-wrap">
+              <div class="case-image-wrap blur">
                 <img src="images/heat_map.png" alt="Heat map showing design practitioner distribution across the organization">
               </div>
+              <p class="case-caption">Heat map of resources by organization</p>
             </div>
             <div class="case-content">
               <div class="case-body-grid">
@@ -534,9 +526,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
                 </div>
               </div>
               <div class="outcomes-grid">
-                <div class="outcome-tile"><div class="outcome-number">Underreported</div><div class="outcome-label">design org size — far more practitioners than leadership assumed, and mostly uncoordinated</div></div>
-                <div class="outcome-tile"><div class="outcome-number">Fragmented</div><div class="outcome-label">design capacity scattered across adjacent orgs with no shared standards or visibility</div></div>
-                <div class="outcome-tile"><div class="outcome-number">Flagged risk</div><div class="outcome-label">contractor dependency identified as an unquantified cost &amp; continuity concern</div></div>
+                <div class="outcome-tile finding"><div class="outcome-number">Underreported</div><div class="outcome-label">design org size — far more practitioners than leadership assumed, and mostly uncoordinated</div></div>
+                <div class="outcome-tile finding"><div class="outcome-number">Fragmented</div><div class="outcome-label">design capacity scattered across adjacent orgs with no shared standards or visibility</div></div>
+                <div class="outcome-tile finding"><div class="outcome-number">Flagged risk</div><div class="outcome-label">contractor dependency identified as an unquantified cost &amp; continuity concern</div></div>
               </div>
             </div>
           </div>
@@ -546,7 +538,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
       <!-- Case 03 -->
       <div class="reveal case-card" data-case>
         <button class="case-header" type="button">
-          <span class="case-num">03</span>
           <div>
             <div class="case-eyebrow">Brand &amp; Product Strategy · Financial Engines</div>
             <div class="case-title">From design as a service to strategic partner</div>
@@ -559,15 +550,15 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
         <div class="case-expand">
           <div class="case-body-inner">
             <div class="case-image-group">
-              <div class="case-image-2col">
-                <div><img src="images/fe_web.jpg" alt="Financial Engines personal advisor web experience — the end-to-end customer journey from awareness to appointment"></div>
-                <div class="case-image-col">
-                  <div><img src="images/fe_guide.jpg" alt="Financial Engines brand guidelines — the complete brand system delivered as a comprehensive document"></div>
-                  <div><img src="images/fe_letterhead.jpg" alt="Brand collateral — business cards, letterhead, and notebook with the new Financial Engines identity"></div>
-                </div>
+              <div class="case-image-hero">
+                <img src="images/fe_letterhead.jpg" alt="Brand collateral — business cards, letterhead, and notebook with the new Financial Engines identity">
               </div>
-              <div class="case-image-hero" style="max-height: 520px; margin-top: 16px;">
-                <img src="images/fe_wall.png" alt="Financial Engines brand wall installation — Grow, Plan, Save, Welcome office signage" style="object-fit: cover; object-position: center; height: 520px;">
+              <div class="case-image-2col">
+                <div><img src="images/fe_guide.jpg" alt="Financial Engines brand guidelines — the complete brand system delivered as a comprehensive document"></div>
+                <div><img src="images/fe_web.jpg" alt="Financial Engines personal advisor web experience — the end-to-end customer journey from awareness to appointment"></div>
+              </div>
+              <div class="case-image-single">
+                <div><img src="images/fe_beast.jpg" alt="In-home research artifact — a customer's handwritten note tracking investment accounts across multiple providers"></div>
               </div>
             </div>
             <div class="case-content">
@@ -610,7 +601,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
       </div>
     </div>
 
-    <p class="work-outro reveal">More case studies and full project detail available on request — <a href="#contact" style="color: var(--brand); text-decoration: underline; text-underline-offset: 3px;">let's talk</a>.</p>
+    <p class="work-outro reveal">I'm happy to share my full portfolio in person.</p>
   </div>
 </section>
 
@@ -627,7 +618,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
           <div class="timeline-line"></div>
           <div class="timeline-dot"></div>
           <div>
-            <strong class="timeline-role">Apple — Program Lead, Voice of the Customer</strong>
+            <strong class="timeline-role">Apple — Manager, Product Management &amp; UX Program Lead</strong>
             <span class="timeline-date">Oct 2022 – Present</span>
             <span class="timeline-desc">Voice of the Customer program, design org strategy, enterprise technology</span>
           </div>
@@ -665,7 +656,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
           <div>
             <strong class="timeline-role">eBay — Principal, User Experience Design</strong>
             <span class="timeline-date">Sep 2006 – Dec 2008</span>
-            <span class="timeline-desc">Two major site redesigns, design system, content strategy practice</span>
+            <span class="timeline-desc">Two major site redesigns, design system, content strategy practice, moved org off waterfall</span>
           </div>
         </div>
         <div class="reveal timeline-item">
@@ -690,9 +681,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
           <div class="timeline-line"></div>
           <div class="timeline-dot"></div>
           <div>
-            <strong class="timeline-role">Travelocity — Managing Producer</strong>
+            <strong class="timeline-role">Travelocity — Design Lead</strong>
             <span class="timeline-date">1995 – 1997</span>
-            <span class="timeline-desc">Managed the producer team that helped launch the first major online travel site</span>
+            <span class="timeline-desc">Managed the design team that helped launch the first major online travel site</span>
           </div>
         </div>
       </div>
@@ -755,7 +746,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 </section>
 
 <!-- ====== FOOTER ====== -->
-<footer class="site-footer">Ann Bishop · Product, Design &amp; Research Leadership</footer>
+<footer class="site-footer">Thanks for reading — let's find out what's actually true.</footer>
 
 <script>
   // Nav: transparent/white over hero, cream+blur once scrolled past it
@@ -801,6 +792,80 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     el.style.transitionDelay = Math.min(siblingIndex * 45, 300) + 'ms';
     io.observe(el);
   });
+</script>
+
+<!-- ====== CHANGELOG PANEL ====== -->
+<style>
+  :root { --rev-accent: #2F6FED; --rev-ink: #10151F; --rev-bg: #FFFFFF; --rev-border: #DCE3F0; --rev-muted: #5B6472; }
+  @media (prefers-color-scheme: dark) {
+    :root { --rev-accent: #6E9BFF; --rev-ink: #EDF1FA; --rev-bg: #171B24; --rev-border: #2B3242; --rev-muted: #9AA4B5; }
+  }
+  :root[data-theme="dark"] { --rev-accent: #6E9BFF; --rev-ink: #EDF1FA; --rev-bg: #171B24; --rev-border: #2B3242; --rev-muted: #9AA4B5; }
+  :root[data-theme="light"] { --rev-accent: #2F6FED; --rev-ink: #10151F; --rev-bg: #FFFFFF; --rev-border: #DCE3F0; --rev-muted: #5B6472; }
+
+  #rev-panel {
+    position: fixed; top: 0; right: 0; width: 340px; height: 100vh; overflow-y: auto;
+    background: var(--rev-bg); border-left: 1px solid var(--rev-border); z-index: 600;
+    font-family: 'Instrument Sans', sans-serif; color: var(--rev-ink);
+    box-shadow: -6px 0 24px rgba(0,0,0,0.08);
+  }
+  #rev-panel-head {
+    padding: 22px 22px 16px; border-bottom: 1px solid var(--rev-border);
+    position: sticky; top: 0; background: var(--rev-bg); z-index: 2;
+  }
+  #rev-panel-head h3 { font: 700 1.05rem/1.3 'Instrument Sans', sans-serif; margin-bottom: 4px; }
+  #rev-panel-head p { font-size: 0.78rem; color: var(--rev-muted); line-height: 1.5; }
+  .rev-item { display: flex; gap: 12px; padding: 16px 22px; border-bottom: 1px solid var(--rev-border); }
+  .rev-item-num {
+    flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: #2E9E5B; color: white;
+    font: 700 12px/20px 'Instrument Sans', sans-serif; text-align: center;
+  }
+  .rev-item-title { font-size: 0.86rem; font-weight: 600; margin-bottom: 4px; line-height: 1.35; }
+  .rev-item-body { font-size: 0.8rem; color: var(--rev-muted); line-height: 1.55; }
+  #rev-toggle {
+    position: fixed; bottom: 24px; right: 24px; z-index: 601;
+    background: var(--rev-accent); color: white; border: none; border-radius: 999px;
+    padding: 12px 18px; font: 600 0.82rem 'Instrument Sans', sans-serif; cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  }
+  body.rev-panel-hidden #rev-panel { display: none; }
+</style>
+
+<div id="rev-panel">
+  <div id="rev-panel-head">
+    <h3>Changes applied</h3>
+    <p>All 8 review findings addressed below. This is review.html — index.html is untouched.</p>
+  </div>
+  <div id="rev-list"></div>
+</div>
+<button id="rev-toggle" type="button">Hide changelog</button>
+
+<script>
+(function(){
+  const changes = [
+    { title: "Palette shifted off-template", body: "Hero/contact now use a deep ink gradient instead of cream+terracotta; accent recut to a clay/rust (#B8451F), less saturated and pushed toward brown so it reads considered, not default." },
+    { title: "Accent reserved for 3 roles", body: "CTA buttons, outcome numbers, and interactive states. Eyebrows, dates, and arrows now use ink/gray so the accent still has something to say." },
+    { title: "Case numbering removed", body: "01/02/03 implied an order that didn't exist. Cards now lead with the eyebrow + title only." },
+    { title: "About fragment fixed", body: "\"Starting with launching Travelocity...\" is now a complete sentence: \"Thirty years in, I've led design, product, and user research at every scale — from launching Travelocity...\"" },
+    { title: "Case 02 outcomes restyled", body: "Qualitative findings (\"Underreported\", \"Fragmented\") now render as small uppercase tags instead of giant numerals, so they read as findings, not stats." },
+    { title: "Hero vertically centered", body: "Section height capped at 92vh with centered content instead of top-pinned, removing the dead space on short/wide viewports." },
+    { title: "Footer no longer repeats the hero line", body: "Now reads \"Thanks for reading — let's find out what's actually true,\" echoing the About section's throughline instead of restating the tagline." },
+    { title: "Down to two typefaces", body: "EB Garamond removed; the philosophy quote now uses Fraunces' own italic, cutting a font file and a family from the system." }
+  ];
+
+  const list = document.getElementById('rev-list');
+  changes.forEach((c, i) => {
+    const item = document.createElement('div');
+    item.className = 'rev-item';
+    item.innerHTML = `<div class="rev-item-num">✓</div><div><div class="rev-item-title">${c.title}</div><div class="rev-item-body">${c.body}</div></div>`;
+    list.appendChild(item);
+  });
+
+  document.getElementById('rev-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('rev-panel-hidden');
+    document.getElementById('rev-toggle').textContent = document.body.classList.contains('rev-panel-hidden') ? 'Show changelog' : 'Hide changelog';
+  });
+})();
 </script>
 
 </body>
